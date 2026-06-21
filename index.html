@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prime Download Manager (PDM) — Fast, modern download manager for Windows</title>
+<meta name="description" content="Prime Download Manager (PDM): multi-connection acceleration, video & playlist downloads, torrents, browser integration, and beautiful Glass & Classic themes." />
+<link rel="icon" href="assets/logo.png" />
+<meta property="og:title" content="Prime Download Manager (PDM)" />
+<meta property="og:description" content="The fast, modern download manager for Windows." />
+<meta property="og:image" content="assets/screenshots/home-glass-dark.png" />
+<style>
+  :root{
+    --blue:#2563eb; --blue2:#1d4ed8; --ink:#0b1020; --muted:#5b6478;
+    --bg:#ffffff; --card:#f6f8fd; --border:#e6eaf2; --green:#22c55e;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#eef2ff; --muted:#9aa6c2; --bg:#0a0d18; --card:#121830; --border:#1f2746; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px}
+  .brand img{width:36px;height:36px;border-radius:9px}
+  .brand small{display:block;font-weight:600;font-size:11px;letter-spacing:2px;color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-weight:700;
+       padding:12px 22px;border-radius:12px;transition:transform .15s ease,background .15s ease;border:0;cursor:pointer}
+  .btn:hover{background:var(--blue2);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
+  /* hero */
+  .hero{text-align:center;padding:60px 0 30px}
+  .hero h1{font-size:clamp(34px,6vw,60px);line-height:1.05;margin:14px 0 10px;letter-spacing:-1px}
+  .hero h1 .grad{background:linear-gradient(90deg,#3b82f6,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:clamp(16px,2.4vw,21px);color:var(--muted);max-width:640px;margin:0 auto 26px}
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+  .meta{color:var(--muted);font-size:13px;margin-top:8px}
+  .shot{margin:40px auto 0;max-width:880px}
+  .shot img{width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:0 30px 80px -30px rgba(37,99,235,.45)}
+  /* sections */
+  section{padding:64px 0}
+  h2{font-size:clamp(26px,4vw,38px);text-align:center;margin:0 0 8px;letter-spacing:-.5px}
+  .sub{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 40px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .feature{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px}
+  .feature .ic{font-size:26px}
+  .feature h3{margin:10px 0 6px;font-size:18px}
+  .feature p{margin:0;color:var(--muted);font-size:15px}
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .gallery figure{margin:0}
+  .gallery img{width:100%;border-radius:14px;border:1px solid var(--border);box-shadow:0 18px 50px -28px rgba(0,0,0,.5)}
+  .gallery figcaption{text-align:center;color:var(--muted);font-size:13px;margin-top:8px}
+  @media(max-width:640px){.gallery{grid-template-columns:1fr}}
+  /* download band */
+  .band{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;border-radius:24px;text-align:center;padding:54px 24px;margin:20px 0}
+  .band h2{color:#fff}
+  .band .sub{color:#dbe6ff}
+  .band .btn{background:#fff;color:var(--blue)}
+  .band .btn:hover{background:#eef2ff}
+  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--border)}
+  .pill{display:inline-block;background:var(--card);border:1px solid var(--border);color:var(--muted);
+        padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <div class="brand">
+      <img src="assets/logo.png" alt="PDM" />
+      <div>Prime Download Manager<small>PDM</small></div>
+    </div>
+    <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest">⬇ Download</a>
+  </nav>
+
+  <header class="hero">
+    <span class="pill">Version 1.0 Beta 4 · Windows 10/11</span>
+    <h1>Download <span class="grad">everything</span>,<br/>faster.</h1>
+    <p class="lead">Prime Download Manager accelerates every download with multiple connections, captures files from your browser, grabs videos &amp; playlists, handles torrents — all in a beautiful Glass or Classic interface.</p>
+    <div class="cta">
+      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest">⬇ Download for Windows</a>
+      <a class="btn ghost" href="#features">See features</a>
+    </div>
+    <div class="meta">Free · Windows 64-bit · ~96&nbsp;MB</div>
+    <div class="shot"><img src="assets/screenshots/home-glass-dark.png" alt="Prime Download Manager home" /></div>
+  </header>
+
+  <section id="features">
+    <h2>Everything you need to download</h2>
+    <p class="sub">One app for files, videos, playlists, and torrents — with the speed and control power users expect.</p>
+    <div class="grid">
+      <div class="feature"><div class="ic">⚡</div><h3>Accelerated downloads</h3><p>A multi-connection engine splits each file into parallel segments for maximum speed — with pause, resume, and auto-reconnect.</p></div>
+      <div class="feature"><div class="ic">🎬</div><h3>Video &amp; playlists</h3><p>Download videos and whole playlists from thousands of sites, choose the quality, and PDM merges audio + video automatically.</p></div>
+      <div class="feature"><div class="ic">🧲</div><h3>Torrents</h3><p>Built-in torrent and magnet support, managed right next to your other downloads.</p></div>
+      <div class="feature"><div class="ic">🌐</div><h3>Browser integration</h3><p>One-click capture from Chrome, Edge, Brave, Opera, and Firefox the moment a download starts.</p></div>
+      <div class="feature"><div class="ic">🗂️</div><h3>Queues &amp; scheduling</h3><p>Group downloads into queues, schedule start/stop times, set retries, and choose post-completion actions.</p></div>
+      <div class="feature"><div class="ic">🎨</div><h3>Glass &amp; Classic themes</h3><p>Frosted Glass or crisp Classic — each in Light &amp; Dark, with multiple color presets.</p></div>
+      <div class="feature"><div class="ic">🔁</div><h3>Duplicate detection</h3><p>PDM spots files you already downloaded and lets you re-download, open, or skip.</p></div>
+      <div class="feature"><div class="ic">🔒</div><h3>Private by design</h3><p>Credentials are encrypted on your own device. Nothing is sent to third parties.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Beautiful in every theme</h2>
+    <p class="sub">Make it yours — switch between Glass and Classic, Light and Dark.</p>
+    <div class="gallery">
+      <figure><img src="assets/screenshots/home-glass-dark.png" alt="Glass dark"><figcaption>Glass · Dark</figcaption></figure>
+      <figure><img src="assets/screenshots/home-glass-light.png" alt="Glass light"><figcaption>Glass · Light</figcaption></figure>
+      <figure><img src="assets/screenshots/home-classic-dark.png" alt="Classic dark"><figcaption>Classic · Dark</figcaption></figure>
+      <figure><img src="assets/screenshots/home-classic-light.png" alt="Classic light"><figcaption>Classic · Light</figcaption></figure>
+      <figure><img src="assets/screenshots/add-download.png" alt="Add download"><figcaption>Add a download</figcaption></figure>
+      <figure><img src="assets/screenshots/progress-window.png" alt="Progress window"><figcaption>Live progress</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="band">
+      <h2>Ready to download faster?</h2>
+      <p class="sub">Get Prime Download Manager for Windows — free.</p>
+      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest">⬇ Download PDM 1.0 Beta 4</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Prime Download Manager (PDM). All rights reserved.<br/>
+    <a href="https://github.com/Emizo59/Prime-Download-Manager/releases">Releases</a>
+  </footer>
+
+</div>
+</body>
+</html>
