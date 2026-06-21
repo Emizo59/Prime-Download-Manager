@@ -65,10 +65,15 @@ Multi-connection acceleration · Video & playlist downloads · Torrents · Brows
 <img src="assets/screenshots/home-classic-dark.png" width="49%" />
 <img src="assets/screenshots/home-classic-light.png" width="49%" />
 
-**Add a download &nbsp;·&nbsp; Live progress**
+**Add a download &nbsp;·&nbsp; Live progress with details**
 
-<img src="assets/screenshots/add-download.png" width="49%" />
-<img src="assets/screenshots/progress-window.png" width="49%" />
+<img src="assets/screenshots/add-download-glass-dark.png" width="49%" />
+<img src="assets/screenshots/progress-dark-details.png" width="49%" />
+
+**Torrents &nbsp;·&nbsp; Queue manager**
+
+<img src="assets/screenshots/torrent.png" width="49%" />
+<img src="assets/screenshots/queue-glass-dark.png" width="49%" />
 
 </div>
 
