@@ -8,9 +8,9 @@
 
 Multi-connection acceleration · Video & playlist downloads · Torrents · Browser integration · Stunning Glass & Classic themes
 
-[![Download](https://img.shields.io/badge/⬇_Download-Windows_10%2F11-2563eb?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest)
+[![Download](https://img.shields.io/badge/⬇_Download-Windows_10%2F11-2563eb?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)
 &nbsp;
-[![Version](https://img.shields.io/badge/version-1.0_Beta_4-22c55e?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest)
+[![Version](https://img.shields.io/badge/version-1.0_Beta_4-22c55e?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)
 &nbsp;
 ![Platform](https://img.shields.io/badge/platform-Windows_64--bit-555?style=for-the-badge)
 
@@ -30,7 +30,7 @@ Multi-connection acceleration · Video & playlist downloads · Torrents · Brows
 
 <div align="center">
 
-### [📥 Download the latest version](https://github.com/Emizo59/Prime-Download-Manager/releases/latest)
+### [📥 Download the latest version](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)
 
 </div>
 
@@ -43,7 +43,7 @@ Multi-connection acceleration · Video & playlist downloads · Torrents · Brows
 | ⚡ **Accelerated downloads** | A multi-connection engine downloads each file in parallel segments for the fastest possible speed — with pause, resume, and automatic reconnect. |
 | 🎬 **Video & playlists** | Download videos and entire playlists from thousands of sites, pick the quality you want, and PDM merges audio + video automatically. |
 | 🧲 **Torrents** | Built-in torrent and magnet-link support — manage your torrents right alongside your other downloads. |
-| 🌐 **Browser integration** | One-click capture from **Chrome, Edge, Brave, Opera, and Firefox**. PDM quietly takes over downloads the moment you start them. |
+| 🌐 **Browser integration** | One-click capture from **Chrome, Edge, Brave, and Opera**. PDM quietly takes over downloads the moment you start them. |
 | 🗂️ **Queues & scheduling** | Group downloads into queues, schedule start/stop times, set retry limits, and choose what happens when a queue finishes. |
 | 🎨 **Glass & Classic themes** | Switch between a frosted **Glass** look and a crisp **Classic** look — each in **Light** and **Dark**, with multiple color presets. |
 | 🔁 **Smart duplicate detection** | PDM notices when you've already downloaded a file and lets you re-download, open it, or skip. |
@@ -81,7 +81,7 @@ Multi-connection acceleration · Video & playlist downloads · Torrents · Brows
 
 ## 🚀 Getting started
 
-1. **[Download the installer](https://github.com/Emizo59/Prime-Download-Manager/releases/latest)** (`Prime_Download_Manager_Setup.exe`).
+1. **[Download the installer](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)** (`Prime_Download_Manager_Setup.exe`).
 2. Run it and follow the setup wizard.
 3. When prompted, enable **Browser Integration** so PDM can automatically catch your downloads.
 4. Start downloading — PDM takes it from there. 🎉
@@ -113,7 +113,7 @@ See all releases on the **[Releases page](https://github.com/Emizo59/Prime-Downl
 Yes — download and use it for free.
 
 **Which browsers are supported?**
-Chrome, Edge, Brave, Opera, and Firefox via the official browser integration.
+Chrome, Edge, Brave, and Opera via the official browser integration.
 
 **Does it work on macOS?**
 A macOS build is in the works. Windows is fully supported today.
@@ -125,8 +125,10 @@ Wherever you choose — set a default download folder in **Settings**, or pick a
 
 <div align="center">
 
-Made with ❤️ — **Prime Download Manager**
+### Developed by **Dr. Moataz** · with AI
 
-© 2026 Prime Download Manager. All rights reserved.
+![Build](https://img.shields.io/badge/build-003-2563eb?style=flat-square) &nbsp; [Privacy Policy](https://emizo59.github.io/download-manager/privacy-policy)
+
+© 2026 Prime Download Manager (PDM). All rights reserved.
 
 </div>
