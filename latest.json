@@ -1,6 +1,6 @@
 {
-  "build": 10,
-  "version": "1.0 Beta 9",
+  "build": 11,
+  "version": "1.0 Beta 10",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n• Fixed path resolution formatting for the silent installer on Windows\n• Improved auto-update administrative elevation prompt handling\n• Branded update layout aesthetics"
+  "notes": "What's new:\n• Fully verified Windows auto-update installation and relaunch logic\n• Branded update layout aesthetics"
 }
