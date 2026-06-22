@@ -71,6 +71,17 @@
   footer .copy{font-size:12.5px;opacity:.8}
   .pill{display:inline-block;background:var(--card);border:1px solid var(--border);color:var(--muted);
         padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.4px}
+  /* Apple-style scroll reveal: elements ease up + fade in as they enter the viewport. */
+  .reveal{opacity:0;transform:translateY(34px);
+          transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);
+          will-change:opacity,transform}
+  .reveal.in{opacity:1;transform:none}
+  .hero .shot{transform:translateY(40px) scale(.98);opacity:0;
+          transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+  .hero .shot.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.hero .shot{transition:none;opacity:1;transform:none}
+  }
 </style>
 </head>
 <body>
@@ -81,7 +92,7 @@
       <img src="assets/logo.png" alt="PDM" />
       <div>Prime Download Manager<small>PDM</small></div>
     </div>
-    <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe" download>⬇ Download</a>
+    <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe">⬇ Download</a>
   </nav>
 
   <header class="hero">
@@ -89,7 +100,7 @@
     <h1>Download <span class="grad">everything</span>,<br/>faster.</h1>
     <p class="lead">Prime Download Manager accelerates every download with multiple connections, captures files from your browser, grabs videos &amp; playlists, handles torrents — all in a beautiful Glass or Classic interface.</p>
     <div class="cta">
-      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe" download>⬇ Download for Windows</a>
+      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe">⬇ Download for Windows</a>
       <a class="btn ghost" href="#features">See features</a>
     </div>
     <div class="meta">Free · Windows 64-bit · ~96&nbsp;MB</div>
@@ -130,14 +141,14 @@
     <div class="band">
       <h2>Ready to download faster?</h2>
       <p class="sub">Get Prime Download Manager for Windows — free.</p>
-      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe" download>⬇ Download PDM 1.0 Beta 4</a>
+      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe">⬇ Download PDM 1.0 Beta 4</a>
     </div>
   </section>
 
   <footer>
-    <div class="credit">Developed by <strong>Dr.&nbsp;Moataz</strong> <span class="ai">with&nbsp;AI</span></div>
+    <div class="credit">Developed By <strong>Dr.&nbsp;Moataz</strong></div>
     <div class="foot-meta">
-      <span class="pill">Build&nbsp;004</span>
+      <span class="pill">Build&nbsp;005</span>
       <a href="https://github.com/Emizo59/Prime-Download-Manager/releases">Releases</a>
       <a href="https://emizo59.github.io/download-manager/privacy-policy">Privacy Policy</a>
     </div>
@@ -145,5 +156,44 @@
   </footer>
 
 </div>
+
+<script>
+  (function () {
+    // Reveal-on-scroll for content sections.
+    var targets = document.querySelectorAll(
+      'h2, .sub, .feature, .gallery figure, .band, #features .grid'
+    );
+    targets.forEach(function (el, i) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = ((i % 6) * 70) + 'ms';
+    });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      targets.forEach(function (el) { io.observe(el); });
+    } else {
+      targets.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    // Staggered hero entrance on load (Apple-style).
+    var hero = document.querySelectorAll(
+      '.hero .pill, .hero h1, .hero .lead, .hero .cta, .hero .meta'
+    );
+    hero.forEach(function (el, i) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (120 + i * 90) + 'ms';
+    });
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        hero.forEach(function (el) { el.classList.add('in'); });
+        var shot = document.querySelector('.hero .shot');
+        if (shot) setTimeout(function () { shot.classList.add('in'); }, 480);
+      });
+    });
+  })();
+</script>
 </body>
 </html>
