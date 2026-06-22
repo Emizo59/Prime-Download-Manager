@@ -90,6 +90,13 @@
         background:linear-gradient(90deg,#3b82f6,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
   .stat .lbl{margin-top:6px;color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.3px}
   .stat .ico{font-size:20px;opacity:.9}
+  /* Animated download arrow inside the CTA buttons (PDM-style down arrow). */
+  .dl-arrow{display:inline-block;vertical-align:-2px;animation:dlbounce 1.5s cubic-bezier(.5,0,.5,1) infinite}
+  .dl-arrow .shaft{stroke-dasharray:14;stroke-dashoffset:0;animation:dlshaft 1.5s ease-in-out infinite}
+  @keyframes dlbounce{0%,100%{transform:translateY(-1px)}45%{transform:translateY(3px)}}
+  @keyframes dlshaft{0%,100%{opacity:1}50%{opacity:.55}}
+  .btn:hover .dl-arrow{animation-duration:.9s}
+  @media (prefers-reduced-motion: reduce){ .dl-arrow,.dl-arrow .shaft{animation:none} }
 </style>
 </head>
 <body>
@@ -100,7 +107,7 @@
       <img src="assets/logo.png" alt="PDM" />
       <div>Prime Download Manager<small>PDM</small></div>
     </div>
-    <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe">⬇ Download</a>
+    <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe"><svg class="dl-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path class="shaft" d="M12 3v12"/><path d="M6.5 11.5 12 17l5.5-5.5"/><path d="M5 21h14"/></svg>Download</a>
   </nav>
 
   <header class="hero">
@@ -108,7 +115,7 @@
     <h1>Download <span class="grad">everything</span>,<br/>faster.</h1>
     <p class="lead">Prime Download Manager accelerates every download with multiple connections, captures files from your browser, grabs videos &amp; playlists, handles torrents — all in a beautiful Glass or Classic interface.</p>
     <div class="cta">
-      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe">⬇ Download for Windows</a>
+      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe"><svg class="dl-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path class="shaft" d="M12 3v12"/><path d="M6.5 11.5 12 17l5.5-5.5"/><path d="M5 21h14"/></svg>Download for Windows</a>
       <a class="btn ghost" href="#features">See features</a>
     </div>
     <div class="meta">Free · Windows 64-bit · ~96&nbsp;MB</div>
@@ -154,7 +161,7 @@
     <div class="band">
       <h2>Ready to download faster?</h2>
       <p class="sub">Get Prime Download Manager for Windows — free.</p>
-      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe">⬇ Download PDM 1.0 Beta 6</a>
+      <a class="btn" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe"><svg class="dl-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path class="shaft" d="M12 3v12"/><path d="M6.5 11.5 12 17l5.5-5.5"/><path d="M5 21h14"/></svg>Download PDM 1.0 Beta 6</a>
     </div>
   </section>
 
