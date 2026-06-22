@@ -10,7 +10,7 @@ Multi-connection acceleration · Video & playlist downloads · Torrents · Brows
 
 [![Download](https://img.shields.io/badge/⬇_Download-Windows_10%2F11-2563eb?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)
 &nbsp;
-[![Version](https://img.shields.io/badge/version-1.0_Beta_6-22c55e?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)
+[![Version](https://img.shields.io/badge/version-1.0_Beta_7-22c55e?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)
 &nbsp;
 ![Platform](https://img.shields.io/badge/platform-Windows_64--bit-555?style=for-the-badge)
 
@@ -90,7 +90,7 @@ Multi-connection acceleration · Video & playlist downloads · Torrents · Brows
 
 ---
 
-## 🆕 What's new in 1.0 Beta 6
+## 🆕 What's new in 1.0 Beta 7
 
 - ✨ Rebranded to **Prime Download Manager (PDM)**.
 - 🪟 Glass progress window now renders cleanly with rounded corners.
@@ -127,7 +127,7 @@ Wherever you choose — set a default download folder in **Settings**, or pick a
 
 ### Developed By **Dr. Moataz**
 
-![Build](https://img.shields.io/badge/build-007-2563eb?style=flat-square) &nbsp; [Privacy Policy](https://emizo59.github.io/download-manager/privacy-policy)
+![Build](https://img.shields.io/badge/build-008-2563eb?style=flat-square) &nbsp; [Privacy Policy](https://emizo59.github.io/download-manager/privacy-policy)
 
 © 2026 Prime Download Manager (PDM). All rights reserved.
 

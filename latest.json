@@ -1,6 +1,6 @@
 {
-  "build": 7,
-  "version": "1.0 Beta 6",
+  "build": 8,
+  "version": "1.0 Beta 7",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n• One-click auto-update — downloads & installs the new version inside the app, then reopens\n• Automatic update checks; the version badge glows when an update is waiting\n• Starts with Windows automatically\n• Fixes: correct download filename, complete dialog outline, no clipping on resize"
+  "notes": "What's new:\n• One-click in-app auto-update (downloads, installs & restarts for you)\n• More professional installer + refined commitment screen\n• Animated download button on the site\n• Polish & fixes"
 }
