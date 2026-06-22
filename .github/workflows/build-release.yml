@@ -1,0 +1,150 @@
+name: Build & Release (from private source)
+
+# Builds the Windows installer on this PUBLIC repo's free Actions (public repos have
+# unlimited minutes — no quota). The source is cloned from the PRIVATE PDM-source repo
+# into the ephemeral runner ONLY (via the SOURCE_REPO_TOKEN secret) and is discarded
+# when the job ends — it is never published here. Mirrors build_mingw.bat + setup.iss.
+#
+# Setup (once): add a repo secret SOURCE_REPO_TOKEN = a fine-grained PAT with
+# Contents:Read on Emizo59/PDM-source.
+#
+# Run: Actions → "Build & Release (from private source)" → Run workflow → pick the
+# source branch/tag and the release tag (e.g. v1.0.6).
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: 'Branch or tag in PDM-source to build'
+        default: 'harden/reliability-extraction-db'
+        required: true
+      release_tag:
+        description: 'Release tag to publish on THIS repo (e.g. v1.0.6)'
+        required: true
+
+permissions:
+  contents: write          # create the release + upload the asset on THIS repo
+
+jobs:
+  windows-installer:
+    runs-on: windows-latest
+    timeout-minutes: 50
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      # Private source → runner only (token-gated). Never committed/published here.
+      - name: Checkout private source (PDM-source)
+        uses: actions/checkout@v4
+        with:
+          repository: Emizo59/PDM-source
+          ref: ${{ github.event.inputs.source_ref }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN }}
+
+      - name: Install Qt 6.9.3 (win64_mingw) + MinGW 13.1.0 + Ninja
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.9.3'
+          host: windows
+          target: desktop
+          arch: win64_mingw
+          tools: 'tools_mingw1310 tools_ninja'
+
+      - name: Install Python (for the PyInstaller extractor build)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build extractor.exe (PyInstaller)
+        run: |
+          python -m pip install --upgrade pip pyinstaller
+          pyinstaller --noconfirm extractor.spec
+          if (-not (Test-Path "dist\extractor.exe")) { throw "extractor.exe build failed" }
+
+      # Prebuilt libtorrent/boost live on the PRIVATE repo's ci-deps-win release —
+      # fetch with the same token.
+      - name: Fetch prebuilt libtorrent + boost (from PDM-source)
+        env:
+          GH_TOKEN: ${{ secrets.SOURCE_REPO_TOKEN }}
+        run: |
+          New-Item -ItemType Directory -Force -Path thirdparty | Out-Null
+          gh release download ci-deps-win --repo Emizo59/PDM-source -p thirdparty-mingw64.tar.gz --output dep.tgz
+          tar -xzf dep.tgz -C thirdparty
+          if (-not (Test-Path "thirdparty\mingw64\lib\libtorrent-rasterbar.dll.a")) { throw "libtorrent staging failed" }
+
+      - name: Fetch curl (win64 mingw dev headers + import lib + runtime DLL)
+        run: |
+          Invoke-WebRequest -Uri "https://curl.se/windows/latest.cgi?p=win64-mingw.zip" -OutFile curl.zip
+          Expand-Archive curl.zip -DestinationPath curl_dl -Force
+          $dir = (Get-ChildItem curl_dl -Directory | Select-Object -First 1).FullName
+          if (-not (Test-Path "$dir\include\curl\curl.h")) { throw "curl headers not found" }
+          "CURL_DIR=$dir" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Fetch yt-dlp.exe + ffmpeg.exe (bundled tools)
+        run: |
+          New-Item -ItemType Directory -Force -Path tools | Out-Null
+          Invoke-WebRequest -Uri "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe" -OutFile tools\yt-dlp.exe
+          Invoke-WebRequest -Uri "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip" -OutFile ff.zip
+          Expand-Archive ff.zip -DestinationPath ff_dl -Force
+          $ff = (Get-ChildItem ff_dl -Recurse -Filter ffmpeg.exe | Select-Object -First 1).FullName
+          if (-not $ff) { throw "ffmpeg.exe not found in archive" }
+          Copy-Item $ff tools\ffmpeg.exe -Force
+
+      - name: Configure (Ninja + Qt MinGW 13.1.0 — same flags as build_mingw.bat)
+        run: |
+          $mingw = ("$env:IQTA_TOOLS\mingw1310_64\bin" -replace '\\','/')
+          $qt = ($env:QT_ROOT_DIR -replace '\\','/')
+          $curl = ($env:CURL_DIR -replace '\\','/')
+          $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:IQTA_TOOLS\Ninja;$env:QT_ROOT_DIR\bin;$env:PATH"
+          cmake -B build -G Ninja -DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release `
+            -DCMAKE_C_COMPILER="$mingw/gcc.exe" -DCMAKE_CXX_COMPILER="$mingw/g++.exe" `
+            -DCMAKE_PREFIX_PATH="$qt;$curl"
+
+      - name: Build
+        run: |
+          $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:IQTA_TOOLS\Ninja;$env:QT_ROOT_DIR\bin;$env:PATH"
+          cmake --build build --parallel
+          if (-not (Test-Path "build\Prime Download Manager.exe")) { throw "Prime Download Manager.exe not built" }
+
+      - name: Deploy Qt runtime + stage DLLs, tools, extension, tutorial
+        run: |
+          $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:QT_ROOT_DIR\bin;$env:PATH"
+          & "$env:QT_ROOT_DIR\bin\windeployqt.exe" --release --qmldir qml "build\Prime Download Manager.exe"
+          $mingwBin = "$env:IQTA_TOOLS\mingw1310_64\bin"
+          foreach ($d in @('libgcc_s_seh-1.dll','libstdc++-6.dll','libwinpthread-1.dll')) {
+            if (Test-Path "$mingwBin\$d") { Copy-Item "$mingwBin\$d" build\ -Force }
+          }
+          $libcurl = if (Test-Path "$env:CURL_DIR\bin\libcurl-x64.dll") { "$env:CURL_DIR\bin\libcurl-x64.dll" } else { "$env:CURL_DIR\lib\libcurl-x64.dll" }
+          Copy-Item $libcurl build\ -Force
+          Copy-Item thirdparty\mingw64\bin\libtorrent-rasterbar.dll build\ -Force
+          Copy-Item dist\extractor.exe build\ -Force
+          Copy-Item tools\yt-dlp.exe build\ -Force
+          Copy-Item tools\ffmpeg.exe build\ -Force
+          Copy-Item extension build\extension -Recurse -Force
+          if (Test-Path extension.crx) { Copy-Item extension.crx build\ -Force }
+          Copy-Item tutorial.html build\ -Force
+
+      - name: Compile installer (Inno Setup)
+        run: |
+          choco install innosetup --no-progress -y
+          $iscc = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) { throw "ISCC.exe not found at $iscc" }
+          & $iscc setup.iss
+          if (-not (Test-Path "installer\Prime_Download_Manager_Setup.exe")) { throw "installer not produced" }
+
+      - name: Upload installer as build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Prime_Download_Manager_Setup
+          path: installer/Prime_Download_Manager_Setup.exe
+          if-no-files-found: error
+
+      - name: Publish GitHub Release (on THIS public repo)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.release_tag }}
+          name: Prime Download Manager ${{ github.event.inputs.release_tag }}
+          draft: false
+          prerelease: false
+          make_latest: true
+          fail_on_unmatched_files: true
+          files: installer/Prime_Download_Manager_Setup.exe
