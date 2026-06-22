@@ -82,6 +82,14 @@
   @media (prefers-reduced-motion: reduce){
     .reveal,.hero .shot{transition:none;opacity:1;transform:none}
   }
+  /* Live stats strip (downloads / visitors). */
+  .stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:30px auto 0;max-width:720px}
+  .stat{flex:1 1 200px;max-width:260px;background:var(--card);border:1px solid var(--border);
+        border-radius:16px;padding:20px 18px;text-align:center}
+  .stat .num{font-size:clamp(28px,5vw,40px);font-weight:800;line-height:1.1;letter-spacing:-1px;
+        background:linear-gradient(90deg,#3b82f6,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lbl{margin-top:6px;color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.3px}
+  .stat .ico{font-size:20px;opacity:.9}
 </style>
 </head>
 <body>
@@ -105,6 +113,11 @@
     </div>
     <div class="meta">Free · Windows 64-bit · ~96&nbsp;MB</div>
     <div class="shot"><img src="assets/screenshots/home-glass-dark.png" alt="Prime Download Manager home" /></div>
+
+    <div class="stats reveal">
+      <div class="stat"><div class="ico">⬇️</div><div class="num" id="statDownloads">—</div><div class="lbl">Downloads</div></div>
+      <div class="stat"><div class="ico">👁️</div><div class="num" id="statVisitors">—</div><div class="lbl">Visitors</div></div>
+    </div>
   </header>
 
   <section id="features">
@@ -180,7 +193,7 @@
 
     // Staggered hero entrance on load (Apple-style).
     var hero = document.querySelectorAll(
-      '.hero .pill, .hero h1, .hero .lead, .hero .cta, .hero .meta'
+      '.hero .pill, .hero h1, .hero .lead, .hero .cta, .hero .meta, .hero .stats'
     );
     hero.forEach(function (el, i) {
       el.classList.add('reveal');
@@ -193,6 +206,54 @@
         if (shot) setTimeout(function () { shot.classList.add('in'); }, 480);
       });
     });
+  })();
+
+  // ── Live stats: real download count (GitHub) + visitor count (counter API) ──
+  (function () {
+    function animateTo(el, target) {
+      if (!el) return;
+      target = Math.max(0, target | 0);
+      var start = 0, t0 = null, dur = 1100;
+      function fmt(n) { return n.toLocaleString('en-US'); }
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(Math.round(start + (target - start) * eased));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Downloads — sum of every release asset's download_count (accurate, public API).
+    fetch('https://api.github.com/repos/Emizo59/Prime-Download-Manager/releases')
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (rels) {
+        var total = 0;
+        (rels || []).forEach(function (rel) {
+          (rel.assets || []).forEach(function (a) {
+            if (/\.exe$/i.test(a.name)) total += (a.download_count || 0);
+          });
+        });
+        animateTo(document.getElementById('statDownloads'), total);
+      })
+      .catch(function () {
+        var el = document.getElementById('statDownloads'); if (el) el.textContent = '—';
+      });
+
+    // Visitors — privacy-friendly hit counter (increments once per page view).
+    fetch('https://api.counterapi.dev/v1/prime-download-manager/site-visits/up')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        var n = d && (d.count != null ? d.count : d.value);
+        if (n == null) throw 0;
+        animateTo(document.getElementById('statVisitors'), n);
+      })
+      .catch(function () {
+        // Hide the visitors card if the counter service is unavailable.
+        var el = document.getElementById('statVisitors');
+        if (el && el.closest('.stat')) el.closest('.stat').style.display = 'none';
+      });
   })();
 </script>
 </body>
