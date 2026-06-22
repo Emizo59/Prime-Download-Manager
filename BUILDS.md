@@ -9,6 +9,7 @@ currently published on the [Releases page](https://github.com/Emizo59/Prime-Down
 
 | Build | Date | Version | Notes |
 |------:|------|---------|-------|
-| **006** | 2026-06-22 | 1.0 Beta 5 | In-app feedback/crash form; build-number-based update detection; About + update check + crash reporting; EULA + publisher info; Apple-style site animations; download-filename fix. |
+| **007** | 2026-06-22 | 1.0 Beta 6 | One-click in-app auto-update (download + silent install + relaunch); periodic update checks; Start-with-Windows on by default; tutorial only on first install; filename + outline + resize fixes. Built on the public repo's free Actions from private source. |
+| 006 | 2026-06-22 | 1.0 Beta 5 | In-app feedback/crash form; build-number-based update detection; About + update check + crash reporting; EULA + publisher info; Apple-style site animations; download-filename fix. |
 | 002 | 2026-06-21 | 1.0 Beta 4 | Windows exe + installer + downloads folder renamed to "Prime Download Manager". |
 | 001 | 2026-06-21 | 1.0 Beta 4 | First public release build. |
