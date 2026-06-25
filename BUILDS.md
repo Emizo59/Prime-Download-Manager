@@ -1,0 +1,60 @@
+# Build Log — Prime Download Manager
+
+Sequential build numbers for every installer produced. The latest build is the one
+currently published on the [Releases page](https://github.com/Emizo59/Prime-Download-Manager/releases).
+
+> **Release rule:** every new public release **bumps the version** (`1.0 Beta N` → `1.0 Beta N+1`,
+> `PROJECT_VERSION` `1.0.x`) **and** the build number, and updates `latest.json`. This keeps the
+> in-app update check reliable for both older builds (version-based) and newer builds (build-based).
+
+| Build | Date | Version | Notes |
+|------:|------|---------|-------|
+| **2026062510** | 2026-06-25 | 1.0 | Official Release 1.0: Added keyboard arrow key navigation to the Settings page, allowing users to scroll using both keyboard arrows and the mouse scroll wheel. Implemented general improvements and stability fixes. |
+| **2026062330** | 2026-06-24 | 1.0 | Official Release 1.0: Updated duplicate download detection logic to check both filename and save path. Ensured sequential renaming is used with parentheses (e.g. A (1)) and completely disabled file replacements. |
+| **2026062329** | 2026-06-24 | 1.0 | Rollback Release: Reverted all features, updates, and Eco Mode modifications back to the stable state of build 2026062319 to resolve updater and installer compatibility issues. |
+| **2026062328** | 2026-06-24 | 1.0 | Official Release 1.0: Implemented a native, borderless Discord-style update GUI window for PrimeUpdater.exe featuring smooth progress easing, cool gray status messages, and a glowing indigo accent frame. |
+| **2026062327** | 2026-06-24 | 1.0 | Official Release 1.0: Fixed variable scoping compilation error and resolved the 16-bit application crash during updates. Restored updater compatibility for older clients via Setup EXE fallback, while newer clients update via dynamic Portable ZIP packages. |
+| **2026062326** | 2026-06-24 | 1.0 | Official Release 1.0: Transitioned auto-updater to a standalone ZIP-based update system, including the new PrimeUpdater.exe utility to extract and deploy updates in place. |
+| **2026062325** | 2026-06-24 | 1.0 | Official Release 1.0: Fixed settings scrollbar track height to correctly stretch to the full page. Bypassed Windows Smart App Control (SAC) blocks on the unsigned updater by removing Zone.Identifier, and improved update delivery reliability by eliminating rate-limited API requests. |
+| **2026062324** | 2026-06-24 | 1.0 | Official Release 1.0: Fixed duplicate download handling to strictly match by filename and save path. Ensured sequential renaming uses space and counter without parentheses (e.g. export 1, export 2) and resolved the file replacement bug. |
+| **2026062323** | 2026-06-24 | 1.0 | Official Release 1.0: Completely removed Eco Mode from the application, refined settings scrollbar styling dynamically to match the home page, and added a handle height safeguard to prevent collapsing. |
+| **2026062322** | 2026-06-24 | 1.0 | Official Release 1.0: Bypassed update check CDN/local caching by appending current millisecond timestamp to raw manifest URL. |
+| **2026062321** | 2026-06-24 | 1.0 | Official Release 1.0: Ensured Eco Mode immediately and completely disables frosted glass, shader blur, and acrylic effects. Added a confirmation dialog to restart the application when toggling Eco Mode. Always display the vertical scrollbar in the settings page and increased its thickness and default opacity. |
+| **2026062320** | 2026-06-23 | 1.0 | Official Release 1.0: Implemented hardware-aware Eco Mode (الوضع الاقتصادي) optimizing CPU and memory utilization on low-spec hardware (<= 4.5 GB RAM or <= 2 cores) via throttled UI updates and disk fsync. |
+| **2026062319** | 2026-06-23 | 1.0 | Official Release 1.0: Centered the 'Send Feedback' button on the About dialog grid and restored secure dynamic browser extension installation detection checks. |
+| **2026062318** | 2026-06-23 | 1.0 | Official Release 1.0: Removed obsolete browser extension group policy and registry keys to resolve Windows Defender heuristics, and aligned torrent file association ProgID name to prevent default open-with prompts. |
+| **2026062317** | 2026-06-23 | 1.0 | Official Release 1.0: Transitioned to active handshake-based extension status checking to resolve Windows Defender credential-stealer heuristic flags, standardized update signature to RSA manifest verification, reduced update card transparency for readability, and fixed update restart functionality. |
+| **2026062316** | 2026-06-23 | 1.0 | Official Release 1.0: Reverted code-signing certificate and removed profile directory scanning to resolve Windows Defender heuristics and Smart App Control blocks. Verified browser extension integration status cleanly using settings configuration. |
+| **2026062315** | 2026-06-23 | 1.0 | Official Release 1.0: Implemented Authenticode code-signing and automatic self-signed certificate trusted publisher registration to resolve Windows Smart App Control (SAC) blocks. Fixed browser extension readiness logic to check both packed and unpacked extensions and parse preferences using QJsonDocument. |
+| **2026062313** | 2026-06-23 | 1.0 | Official Release 1.0: Resolved unpacked extension detection using browser profile Preferences scanning, removed the default first launch firewall permission trigger socket binding. |
+| **2026062312** | 2026-06-23 | 1.0 | Official Release 1.0: Replaced browser extension tray notifications with a premium blurred popup overlay, handled extension ready status logic correctly for both store and legacy extensions, and added Install Extension button directly in the popup modal. |
+| **2026062311** | 2026-06-23 | 1.0 | Official Release 1.0: Fixed update postponing restart flow logic (resilient against UAC cancellations) and scaled the header button container to fit correctly in full screen layouts. |
+| **2026062310** | 2026-06-23 | 1.0 | Official Release 1.0: Added update postponing with "Restart Now" options, redesigned About dialog links to a modern card layout, updated GitHub README Privacy Policy badge, and fixed extension detection folder false-positive checks. |
+| **2026062309** | 2026-06-23 | 1.0 | Official Release 1.0: Added update resume support and manual extension checking, reverted Developed By credit back to Dr. Moataz. |
+| **2026062308** | 2026-06-23 | 1.0 | Official Release 1.0: reset version, added browser extension disk check, pause/resume and improved cancel update downloads, EGY PDM publisher rebranding, and build number in updates. |
+| **2026062307** | 2026-06-23 | 1.1 Stable | Removed WinVerifyTrust digital signature check on Windows; relying fully on RSA manifest signing and SHA-256 integrity verification. |
+| **2026062306** | 2026-06-23 | 1.1 Stable | Restored supply chain security verification checklist (Windows Authenticode WinVerifyTrust signature checking active). |
+| **2026062304** | 2026-06-23 | 1.1 Stable | Fixed 'untrusted signature' error during auto-update installation by removing redundant WinVerifyTrust digital signature check on Windows. |
+| **2026062303** | 2026-06-23 | 1.1 Stable | Official browser extension support update. Deprecated local unpacked extension directories and visual guide settings. Added startup browser extension prompt to install from the Chrome Web Store. |
+| **2026062302** | 2026-06-23 | 1.1 Stable | Security Patch No (1) - Embedded SHA-256 update verification, RSA-2048 update manifest signature checking, Authenticode validation via WinVerifyTrust, and execution path restrictions on Windows to block portable mode DLL hijacking. |
+| **2026062301** | 2026-06-23 | 1.0 Stable | Upgraded to 1.0 Stable, implemented unpacked extension auto-reload, disabled updates checking on macOS, and restricted Windows update notifications to verified release assets. |
+| **2026062205** | 2026-06-22 | 1.0.102 Pre-release 4 | Fixed progress window not showing, prevented auto-start on browser-intercepted downloads, and resolved website redirection issues. |
+| **2026062204** | 2026-06-22 | 1.0.102 Pre-release 3 | Fixed progress window popups, activated outlines default colors, reset website visitor/download stats, and implemented smarter duplicate checks. |
+| **2026062203** | 2026-06-22 | 1.0.102 Pre-release 2 | Fixed completed progress window auto-closing on Windows due to type-mismatch in completed task ID lookup. |
+| **2026062202** | 2026-06-22 | 1.0.102 Pre-release 1 | Resolved MIME type suffix mapping for extensionless downloads (like wallpaper sites), stabilized completed progress window (prevented auto-closing on mouse leave), renamed right-click option to 'Download by PDM', and hardened queue setting for database-only downloads. |
+| **2026062201** | 2026-06-22 | 1.0.101 Pre-release | Fixed segment reconnecting loop and pause/resume stuck states, added webRequest onHeadersReceived interception for wallpaper/redirect direct downloads, fixed right-click context menu downloads downloading webpage files, and robustified update checks. |
+| **20260622** | 2026-06-22 | 1.0 Pre-release | Upgraded to Pre-release phase with full browser extension file type interception (PDF, text, images, office files, etc.) and date-based build versioning. |
+| 017 | 2026-06-22 | 1.0 Beta 16 | Added Cancel button to the update download UI page. |
+| 016 | 2026-06-22 | 1.0 Beta 15 | Configured installer to run in completely silent (/VERYSILENT) mode on restart. |
+| 015 | 2026-06-22 | 1.0 Beta 14 | Fixed silent installer getting blocked by custom pledge page in silent mode. |
+| 014 | 2026-06-22 | 1.0 Beta 13 | Fixed auto-update relaunch race condition and implemented setup process termination. |
+| 013 | 2026-06-22 | 1.0 Beta 12 | Fixed version badge remaining yellow after update, added installer progress bar and restart popup. |
+| 012 | 2026-06-22 | 1.0 Beta 11 | Decoupled update download and installation, added installer progress bar and restart popup. |
+| 011 | 2026-06-22 | 1.0 Beta 10 | Fully verified Windows auto-update installation and relaunch logic. |
+| 010 | 2026-06-22 | 1.0 Beta 9 | Fixed path resolution formatting for the silent installer on Windows using native path separators; improved administrative elevation prompt handling. |
+| 009 | 2026-06-22 | 1.0 Beta 8 | Improved Windows auto-update installation and relaunch reliability; integrated official app logo in the update overlay UI; centralized browser extension ID configuration parameters; optimized standard input buffering. |
+| 008 | 2026-06-22 | 1.0 Beta 7 | True one-click in-app auto-update; professional installer wizard imagery + refined pledge; 'Prime Download Manager (PDM)' user-agent; animated site download arrow. |
+| 007 | 2026-06-22 | 1.0 Beta 6 | One-click in-app auto-update (download + silent install + relaunch); periodic update checks; Start-with-Windows on by default; tutorial only on first install; filename + outline + resize fixes. Built on the public repo's free Actions from private source. |
+| 006 | 2026-06-22 | 1.0 Beta 5 | In-app feedback/crash form; build-number-based update detection; About + update check + crash reporting; EULA + publisher info; Apple-style site animations; download-filename fix. |
+| 002 | 2026-06-21 | 1.0 Beta 4 | Windows exe + installer + downloads folder renamed to "Prime Download Manager". |
+| 001 | 2026-06-21 | 1.0 Beta 4 | First public release build. |
