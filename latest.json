@@ -1,8 +1,8 @@
 {
-  "build": 2026062510,
+  "build": 2026062602,
   "version": "1.0",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n• Scroll Controls: Support navigating the Settings page using keyboard arrow keys in addition to mouse scrolling.\n• Improvements & Fixes: General stability improvements and bug fixes.",
-  "sha256": "5ace69bec952efa23663be830c02c1ce4bcdd2b5bd9f417b8935c0c2a9116954",
-  "signature": "KwI/zIsz4XofNM9aFsXXy/mdkVkLmsh+oRZdfRTTNJbvBNQvNplJB2hTsyn+C63M94Y9sLENr9MYOIDoDZh0CDw/gJchzHYPPFgBVUBPoyAYz/3XZL5oTObh6o2GKMOgdxgR68LekI6483w5C/VP/aSudgYR7h/Nm6BrCKa5mlfLqLfX5/Y0q6fSHz6pNzX2xFKe9w937Rg50lkd5MS9R3XDCQtIfcE831lFNY8SjCJMkaH5Eb61xNFlgLlMOD2f95RDxh6cB2BtbgQEmhoz1uajwFZOgxgv9R+x+z3YR5gRF3RJK5SSLCcXZt34mVox43DZcdU99tdWQZ1bG315+g=="
+  "notes": "What's new:\n\u2022 YouTube Section Downloading: High-stability time range cutting directly from YouTube with dynamic client headers (ios,web,android) to bypass blocks, plus automated resume conflicts resolution and process crash protection.\n\u2022 Digital Timer Input UI: Elegant unified time capsule display (From: 00:00 \u2794 To: 00:10) for clipping video sections cleanly without text truncation.\n\u2022 Facebook Video Downloader: Repositioned the in-browser video download button to the top-right corner to prevent blocking the video player's default volume slider.",
+  "sha256": "b3c2f4aa4602ae8e20d2f5111649e1dfcf901dca1d804ec7ea18bd1cc1f977b6",
+  "signature": "bX5Fy/TId4Yen2viBU/SvsEV560FwGWnzU1YeFYaIPLb7NXJd3MLkt7FR33dLQsI2BBAxS12/mVS74h4o5PPBKkxmvmQ28p7Gi19Uh/hRXp4PS3lGErdSmZOuXkCULql9+PkekUeHJsCcLhdl9G+8WOr8oabYj1wNxF7PjUsHvdI/67Pne7jduIFb1hcfeC2yZOeY8a2lmxuo/Czz787/g2JmPP3Xa+/MC0Khioc7B2CwLbkb/vZpgJh5y7cd/Cah2cL3kGtI/ajhUy1z7OkI0N8x0np/mp2lxcdWfdz8FU2eWdErRH4PQveeXMKaJPAmw/lX8E4rvFeK0FTHs8W4A=="
 }

@@ -92,10 +92,14 @@ Multi-connection acceleration · Video & playlist downloads · Torrents · Brows
 
 ## 🆕 What's new in 1.0
 
+- 🎬 **YouTube Section Downloading**: High-stability time range cutting directly from YouTube with dynamic client headers (`ios,web,android`) to bypass blocks, plus automated resume conflicts resolution and process crash protection.
+- 🎨 **Digital Timer Input UI**: Elegant unified time capsule display (From: 00:00 ➔ To: 00:10) for clipping video sections cleanly without text truncation.
+- 🌐 **Facebook Video Downloader**: Repositioned the in-browser video download button to the top-right corner to prevent blocking the video player's default volume slider.
 - 🔁 **Smart duplicate detection**: Updated duplicate checks to match both filename and save path. Prevented overwrites and implemented sequential numbering using parentheses (e.g. `A (1).ext`).
 - 🛡️ **Security & performance rollback**: Reverted codebase features to stable build `2026062319` for maximum performance, reliability, and security.
 
 ### 🐞 Recently fixed
+- Fixed YouTube video section download connection blocks and 403 Forbidden errors.
 - Fixed file replacements when downloading identical URLs.
 - Fixed updater and installer compatibility issues.
 - Fixed playlist queue display and download integrity.
@@ -124,7 +128,7 @@ Wherever you choose — set a default download folder in **Settings**, or pick a
 
 ### Developed By **Dr. Moataz**
 
-[![Build](https://img.shields.io/badge/build-2026062510-2563eb?style=flat-square)](https://github.com/Emizo59/Prime-Download-Manager/releases) &nbsp; [![Privacy Policy](https://img.shields.io/badge/privacy--policy-10b981?style=flat-square)](https://emizo59.github.io/download-manager/privacy-policy)
+[![Build](https://img.shields.io/badge/build-2026062602-2563eb?style=flat-square)](https://github.com/Emizo59/Prime-Download-Manager/releases) &nbsp; [![Privacy Policy](https://img.shields.io/badge/privacy--policy-10b981?style=flat-square)](https://emizo59.github.io/download-manager/privacy-policy)
 
 © 2026 Prime Download Manager (PDM). All rights reserved.
 

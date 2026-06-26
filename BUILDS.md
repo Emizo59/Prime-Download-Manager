@@ -9,6 +9,7 @@ currently published on the [Releases page](https://github.com/Emizo59/Prime-Down
 
 | Build | Date | Version | Notes |
 |------:|------|---------|-------|
+| **2026062602** | 2026-06-26 | 1.0 | Official Release 1.0: Fixed YouTube section download failures (added client bypass arguments, cleared leftover .part files between cascade attempts to prevent 403 Forbidden errors, and resolved wrapper process BrokenPipeError crashes). Repositioned Facebook video overlay download button to top-right to prevent blocking the video player volume control slider. Redesigned time input text boxes to unified capsules. |
 | **2026062510** | 2026-06-25 | 1.0 | Official Release 1.0: Added keyboard arrow key navigation to the Settings page, allowing users to scroll using both keyboard arrows and the mouse scroll wheel. Implemented general improvements and stability fixes. |
 | **2026062330** | 2026-06-24 | 1.0 | Official Release 1.0: Updated duplicate download detection logic to check both filename and save path. Ensured sequential renaming is used with parentheses (e.g. A (1)) and completely disabled file replacements. |
 | **2026062329** | 2026-06-24 | 1.0 | Rollback Release: Reverted all features, updates, and Eco Mode modifications back to the stable state of build 2026062319 to resolve updater and installer compatibility issues. |
