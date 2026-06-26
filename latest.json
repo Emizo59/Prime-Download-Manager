@@ -1,8 +1,8 @@
 {
-  "build": 2026062603,
+  "build": 2026062604,
   "version": "1.0",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
   "notes": "What's new:\n\u2022 YouTube Video Section Downloading: Cut and download specific time ranges from YouTube videos.\n\u2022 Digital Timer UI Capsules: Premium digital layout for time ranges.\n\u2022 Refresh URL: Easily replace expired links and resume downloads.\n\u2022 Manual Multiple Links: Add multiple links at once when manually creating tasks.\n\u2022 Facebook Video Downloader: Moved the download button to the top-right to keep volume controls clear.",
-  "sha256": "3396f17046e59d5b422bdab6e1a6116eeea649488b3782b141aac156c3ca9c94",
-  "signature": "Dv2Uup4DX/3+sVWD2sYrVqDJ8xpujXEc6sv3awXgXY2XBsYUtiVZV3rh+BtUaIgfMC/yTyycdPWQHl8o1QWNfKsNAAEuXZQvpWIHSFTz5aWTJBLswHN2rGxww7XIhgkcpF8Vu+wOnCgBf32WwtqZRuaSfrjslRxKj4bR5NtYPjjNCKqnfqOExNUTD3zgg4OLMZLKEm2btqVcH+/7Tpvv1y0oX2mHsjAj9Utha/QlxZwniuq4wi6J41BEh+1qD5RvGgeccMbETjax0qtj/G9MNm8+UCGt9wyNj/heUmy2StuhaXJVnGbggLS+7JQkECxIqHrp+H7T/kTHJNm5UP+dsw=="
+  "sha256": "9ba27026b68146062017afde13d9f4c437a553c7e1bad74a5f448e2e69dbbe15",
+  "signature": "lmFKf3WghLf5/YC44E90DTL3T8+wY6YReCL0VYJuHg14+V/faIwTD/MGImlUDTd/bKtwzZPyxB7aAUXTWGaj+ZRt+rcrR1DeghRUTX94q4XmZmg69JGJ1JYZ/WG6r3I42jqvqJ7wCOGcoxmwMXUEhns6eTenukaCdwWHmjAQG1wrDWOv5drNBYtYXiyvZwjk2bCL9EbrDGmcEzQ/xN5lSbLNOYZQGIdy2/dmoT3fUQW50cf+vAXfYjPu+AMU8qrmg93GWOOqWrVKijsGBC8yTwRaYpnxhrRhPORYs38UqcBO0GMn8+Fjd10Cl/pNLeyvkEWMNhOrYZmP/sNEScbNTw=="
 }

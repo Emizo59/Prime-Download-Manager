@@ -9,6 +9,7 @@ currently published on the [Releases page](https://github.com/Emizo59/Prime-Down
 
 | Build | Date | Version | Notes |
 |------:|------|---------|-------|
+| **2026062604** | 2026-06-26 | 1.0 | UI & Stability Update: Redesigned the right-click context menu in the "Add Download" dialog to feature a modern glass layout matching the Home page, and resolved the auto-updater integrity verification failure (SHA-256 mismatch) by signing the final release build. |
 | **2026062603** | 2026-06-26 | 1.0 | Stability Update: Resolved YouTube video section download failures caused by version drift of cached yt-dlp executables in AppData, and simplified the UI failure message to "Failed". |
 | **2026062602** | 2026-06-26 | 1.0 | Official Release 1.0: Added YouTube Video Section downloading/cutting, Refresh URL functionality to replace expired links, manual Multiple Links mode support, unified digital timer capsules for time range inputs, and repositioned Facebook video overlay download button to the top-right corner. |
 | **2026062510** | 2026-06-25 | 1.0 | Official Release 1.0: Added keyboard arrow key navigation to the Settings page, allowing users to scroll using both keyboard arrows and the mouse scroll wheel. Implemented general improvements and stability fixes. |
