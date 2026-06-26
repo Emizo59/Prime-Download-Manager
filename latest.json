@@ -1,8 +1,8 @@
 {
-  "build": 2026062612,
+  "build": 2026062613,
   "version": "1.0",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n\u2022 Sizing Fix: Aligned the Add Download dialog height to match macOS compactness while ensuring buttons remain visible on Windows.\n\u2022 Clipper Stability: Resolved YouTube section download quality and seek failures by forcing keyframes at cuts.\n\u2022 Smart App Control & Windows Defender: Automatically unblocks YouTube extractor and merge binaries on execution.",
-  "sha256": "c6e44cfdd95533b83b13209044cbf3b60e8e8520cea7a93f0f73dfe10f801397",
-  "signature": "iQlf+AUaKhMbXROhrCuQP73RD97ioWnISDcvcFSpcgS5EEvf4KC7E4SVYkXuFEZRSo8WWQz5GKm7mcrwuqXympII0TyoHLmMpTVFpeFTw+m+BMG5+TGxByTjgNw7abR22ZekRXkTfK9/BTcQe7dLdjlttoRuTVWCMgxuJqDUMnNvybE9dITJUNIxwJn2VKFQfPeBEl5dD2dxLI7fn0P5nO6yRoAUVQISM/cOKYY7zw3Q6EJT6y8s7dE4o8y0TCYoNieLJV2JYyQox9rDFxpRHr4jLo4eCzVJkXGp2Z1CkUQov4jB+TVZMjHo+2cOtmSkfUg33hHBcbjxa8NIlb2SbA=="
+  "notes": "What's new:\n\u2022 Dialog Size: Fully compact Add Download dialog matching macOS exactly (reverted height buffers and skipped DWM frame decorations).\n\u2022 Clipper Location: Dynamically resolves ffmpeg.exe path across dest_dir, tools, and AppData directories to prevent Clipper failures.\n\u2022 Size Progress: Parses estimated/actual download size from yt-dlp section progress streams even in the presence of ANSI terminal escape codes.",
+  "sha256": "e5fe3d00d673c2ed739a1c555053fb0675419baf37676f2f07b4650b740b5ab4",
+  "signature": "d8mOktwUdeHCFzImxzLC+xZ/j5mmSSaXpjdbo3c7dt7xQoRdShmiqviwuZwLoPYKITdaeUwCBwZQqmpUfHSHaU9gPGMHcqYmp2xsW1DF0lGQ1AuODXnY2lw64y+21unek2TXlNk+tVNgLm35zbsV8Nd1YbyjpKjVn746ZzKrkrZfyQ6HkfnSscWyrueG+upftHvIIZ1l9dE2s2vakuJjuZ9HrZjSMnpR5lzqvsuav+DUq7Ct4I8daOGaqdHc3HLlu1TPaTfulE2pPAch83y9lgJSYig3+AF6vmkUsBqsXXr86mXuDYAqUPObTA5MpQy6iIuwfUEpaC4+XZZB0ZghGQ=="
 }
