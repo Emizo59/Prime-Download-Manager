@@ -1,8 +1,8 @@
 {
-  "build": 2026062605,
+  "build": 2026062608,
   "version": "1.0",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n\u2022 YouTube Video Section Downloading: Cut and download specific time ranges from YouTube videos.\n\u2022 Digital Timer UI Capsules: Premium digital layout for time ranges.\n\u2022 Refresh URL: Easily replace expired links and resume downloads.\n\u2022 Manual Multiple Links: Add multiple links at once when manually creating tasks.\n\u2022 Facebook Video Downloader: Moved the download button to the top-right to keep volume controls clear.",
-  "sha256": "a56e666653ee666d21bedc0fe1fd939207b956930da398cb38d61cda960ec8fd",
-  "signature": "mmkA+aReobxFrimXZkQM0OOV/pUwLTaiejVTKE4yvSH5A9IBqUpSA2aHcHYdp3xg5KruRcBUqNd6xLUznrcqQi77YguhoOQBkIyHLR+SxX9FiBXY3RmdsVJfhdBToEbguCVOHYNRCWz/K4smldsjlEeB4r2Dtq2QCcSvAkfzSdBQOc7sUx6cnYdzJrDGH31T5cRHVqWpd9kwD04AgDFdZkjOMqIyweaUJ0Gf+KiSARd0HlcTHqif6KYLjiNdFoMbKCNgBVRUJkvyZh1uRO6DODg+/uEvew8vZM4W8GwxOiv4xnm6662aftYdgzWOHm97fLqaEM6dBIDV5Z/ZQrmDPQ=="
+  "notes": "What's new:\n\u2022 YouTube Video Section Downloading: Fixed video/audio extraction quality degradation.\n\u2022 QuickTime Compatibility: Trimmed clips now play correctly on macOS QuickTime Player without error or voice-only issues.\n\u2022 Stabilized Windows YouTube extractor environments with macOS to resolve intermittent section download failures.",
+  "sha256": "0452d8a9dc694d084b953ecb4ca9b26138e815e9ff3f3cb132f0d4dea27c7d3a",
+  "signature": "KPxwPMahZAvo7q1fo7xdWa3BGd6qjEU4kOfcdbnibW/bNey0qjnjpkFyZQ7yhsSJjCJotm/OgDYwgnpzWEGZnGgN3rlckR29RC1wrzJUTOMkcuvmJc5U3/6IyvzNaEqrA4UxncwpRw+gx3ie6mzpZZIej3oL4a9Ice8uY/xsi5NZGJQBbdQeBEK0hrEvXSXkcjG0Vnh7Tdur1BOLVn1n3cR8QpOi71cTvGoaXrD4qny6Sva8ygtoIDUSLnOIJ5LOu5lS2Q0RfnFbSnBIlnK00GxrErqPfIC7TI7PKAnKsY4Fu4wjlmL+IeuGBL9tTzofoM5LYfuR4oUh1j2ENRtW+A=="
 }
