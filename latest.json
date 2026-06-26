@@ -1,8 +1,8 @@
 {
-  "build": 2026062611,
+  "build": 2026062612,
   "version": "1.0",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n\u2022 YouTube Video Section Downloading: Resolved compatibility and extraction quality degradation on Windows.\n\u2022 Bypassed Smart App Control and Windows Defender blocks on YouTube extraction binaries.\n\u2022 Fixed Add Download window sizing and button alignment issues.",
-  "sha256": "c4f2e4f108cd34dc1176096da1b494ae82afe1024c23f27db2901ec6c3c62df7",
-  "signature": "ckkuRgk6+CmOSd1hjac7SuwDi6UaJr10Y6McRDOA0N0NBljBIjfdDh1xCyXU1D7fTf6wfFInGcT0aufGui3Zzdu6S1FKuaH1B0RwxtXxmf5BKTnZEb1kOGgq1Q8K3ecrHIyGfEOuw6YcJxMI/6RRWTOoC0WgB1u2CivlvYvy+lS24Xmr1f4f9ofN1Jt92XrH7/V72hLyVy90ZOIEAtOVeJjUXmOcbqRd3Lf6R8+tAlcml/lcCDZV8qPS1ty5DUe6sn3+6S7OhXxXmthQPldBhaGhhEmIGkTWq145smKc3+qSVsLDrB4X/uqSo2FsdRxxjcRmUu7au4wUVgH7xOxn/A=="
+  "notes": "What's new:\n\u2022 Sizing Fix: Aligned the Add Download dialog height to match macOS compactness while ensuring buttons remain visible on Windows.\n\u2022 Clipper Stability: Resolved YouTube section download quality and seek failures by forcing keyframes at cuts.\n\u2022 Smart App Control & Windows Defender: Automatically unblocks YouTube extractor and merge binaries on execution.",
+  "sha256": "c6e44cfdd95533b83b13209044cbf3b60e8e8520cea7a93f0f73dfe10f801397",
+  "signature": "iQlf+AUaKhMbXROhrCuQP73RD97ioWnISDcvcFSpcgS5EEvf4KC7E4SVYkXuFEZRSo8WWQz5GKm7mcrwuqXympII0TyoHLmMpTVFpeFTw+m+BMG5+TGxByTjgNw7abR22ZekRXkTfK9/BTcQe7dLdjlttoRuTVWCMgxuJqDUMnNvybE9dITJUNIxwJn2VKFQfPeBEl5dD2dxLI7fn0P5nO6yRoAUVQISM/cOKYY7zw3Q6EJT6y8s7dE4o8y0TCYoNieLJV2JYyQox9rDFxpRHr4jLo4eCzVJkXGp2Z1CkUQov4jB+TVZMjHo+2cOtmSkfUg33hHBcbjxa8NIlb2SbA=="
 }
