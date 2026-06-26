@@ -1,8 +1,8 @@
 {
-  "build": 2026062608,
+  "build": 2026062609,
   "version": "1.0",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n\u2022 YouTube Video Section Downloading: Fixed video/audio extraction quality degradation.\n\u2022 QuickTime Compatibility: Trimmed clips now play correctly on macOS QuickTime Player without error or voice-only issues.\n\u2022 Stabilized Windows YouTube extractor environments with macOS to resolve intermittent section download failures.",
-  "sha256": "0452d8a9dc694d084b953ecb4ca9b26138e815e9ff3f3cb132f0d4dea27c7d3a",
-  "signature": "KPxwPMahZAvo7q1fo7xdWa3BGd6qjEU4kOfcdbnibW/bNey0qjnjpkFyZQ7yhsSJjCJotm/OgDYwgnpzWEGZnGgN3rlckR29RC1wrzJUTOMkcuvmJc5U3/6IyvzNaEqrA4UxncwpRw+gx3ie6mzpZZIej3oL4a9Ice8uY/xsi5NZGJQBbdQeBEK0hrEvXSXkcjG0Vnh7Tdur1BOLVn1n3cR8QpOi71cTvGoaXrD4qny6Sva8ygtoIDUSLnOIJ5LOu5lS2Q0RfnFbSnBIlnK00GxrErqPfIC7TI7PKAnKsY4Fu4wjlmL+IeuGBL9tTzofoM5LYfuR4oUh1j2ENRtW+A=="
+  "notes": "What's new:\n\u2022 YouTube Video Section Downloading: Reverted extraction flags to ensure maximum player and network stability on Windows.\n\u2022 Stabilized Windows YouTube extractor environments with macOS to resolve intermittent section download failures.",
+  "sha256": "1bdc215f149550ba7bb4d90e1ff91da701e45cd3bae543dade23a3abdcc1dee1",
+  "signature": "IVdQrHd7f7B31vHiJsy6pgqf9oim4wTy18o/gxJIIwKz9aa/YD1/0Fy7xxUHiQZo9XxLETJH7r7nsCyfFZVeibrAanOKfBLe0VaUoSeoDegk/W+77ywFADodxAwFruVAUMp1WN4RLmBbVsxFva8jQ3lM7we3MGNjLvS7qZdmqUVaXPvwFVOPYI9QttVkKrAJ1EdSxjR+Ffd+ntcrG7gEBSzg+hDMj3vZ4779Znuhbfn9QJ7TSp8gkv/++GySfCUvhASBU+OuoIzqaL1yMW0qSXyQC3flSFQsxnpdUEPFLJw/x8IjoiCt1Nr9oM0VQRyBquTb+hcZHRJ+3wkxU/vn/A=="
 }

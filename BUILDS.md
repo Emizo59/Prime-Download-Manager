@@ -9,6 +9,7 @@ currently published on the [Releases page](https://github.com/Emizo59/Prime-Down
 
 | Build | Date | Version | Notes |
 |------:|------|---------|-------|
+| **2026062609** | 2026-06-26 | 1.0 | Stability Update: Reverted the extraction flags on Windows to ensure maximum player and network stability, while keeping them active on macOS for QuickTime Player compatibility. |
 | **2026062608** | 2026-06-26 | 1.0 | Feature Alignment: Fixed YouTube video/audio section download quality degradation on Windows, matching the macOS stabilization. Resolved QuickTime compatibility issues for trimmed clips (added frame-accurate keyframe cuts and mp42 branding) so trimmed clips play perfectly on macOS without audio-only or player error warnings. |
 | **2026062605** | 2026-06-26 | 1.0 | Stability Update: Aligned Windows YouTube extractor environments with macOS to resolve intermittent section download failures. Fixed dynamic resizing and text field clipping inside the "Add Download" dialog on Windows. Added a manual check-for-updates refresh button inside the update overlay, and replaced/deprecated the faulty build 2026062603 to resolve update integrity failures (SHA-256 mismatch). |
 | **2026062604** | 2026-06-26 | 1.0 | UI & Stability Update: Redesigned the right-click context menu in the "Add Download" dialog to feature a modern glass layout matching the Home page, and resolved the auto-updater integrity verification failure (SHA-256 mismatch) by signing the final release build. |
