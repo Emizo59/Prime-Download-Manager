@@ -1,8 +1,8 @@
 {
-  "build": 2026062609,
+  "build": 2026062610,
   "version": "1.0",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n\u2022 YouTube Video Section Downloading: Reverted extraction flags to ensure maximum player and network stability on Windows.\n\u2022 Stabilized Windows YouTube extractor environments with macOS to resolve intermittent section download failures.",
-  "sha256": "1bdc215f149550ba7bb4d90e1ff91da701e45cd3bae543dade23a3abdcc1dee1",
-  "signature": "IVdQrHd7f7B31vHiJsy6pgqf9oim4wTy18o/gxJIIwKz9aa/YD1/0Fy7xxUHiQZo9XxLETJH7r7nsCyfFZVeibrAanOKfBLe0VaUoSeoDegk/W+77ywFADodxAwFruVAUMp1WN4RLmBbVsxFva8jQ3lM7we3MGNjLvS7qZdmqUVaXPvwFVOPYI9QttVkKrAJ1EdSxjR+Ffd+ntcrG7gEBSzg+hDMj3vZ4779Znuhbfn9QJ7TSp8gkv/++GySfCUvhASBU+OuoIzqaL1yMW0qSXyQC3flSFQsxnpdUEPFLJw/x8IjoiCt1Nr9oM0VQRyBquTb+hcZHRJ+3wkxU/vn/A=="
+  "notes": "What's new:\n\u2022 YouTube Video Section Downloading: Reverted extraction settings to the stable configuration of build 2026062605 on Windows.\n\u2022 Stabilized Windows YouTube extractor environments with macOS to resolve intermittent section download failures.",
+  "sha256": "b0b50a1e71a582ace5c29379cc51a7cbcd6bd0da9427d0a8bfd39bba401686ff",
+  "signature": "GQNQS8K3/lb6sDh9g+nv7JSR/r2OkIHnaNMdQy6ucaJOTn6nYs8p/P7eTWajkRPFqsvTZXG+ON03CMIAXZeEhXy2KR4ADbeZLRanrbU2WP4W44qVNLMQ/VNQidjDG+UAcdwvorYNQ+F1OtWjdI6hH3LvMHvK8/g0L2MpIKHzB4plTQ80znXL8HiKoKHcOHJouFB2iqAs1mOlsFn9OkGnG/OmyyUFVQR4zRlFKf14T8jRc3+EVs5Qc9D3Y1iB3P/lueH3xsXm18REwhJx1I0po3EBeEBIowaTo4OhD9AWmFpwi9N17qh5L+D61Tn5Ueh9XlfXedd6yD/nBg1Doa1WEw=="
 }
