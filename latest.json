@@ -1,8 +1,8 @@
 {
-  "build": 2026062613,
+  "build": 2026062701,
   "version": "1.0",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n\u2022 Dialog Size: Fully compact Add Download dialog matching macOS exactly (reverted height buffers and skipped DWM frame decorations).\n\u2022 Clipper Location: Dynamically resolves ffmpeg.exe path across dest_dir, tools, and AppData directories to prevent Clipper failures.\n\u2022 Size Progress: Parses estimated/actual download size from yt-dlp section progress streams even in the presence of ANSI terminal escape codes.",
-  "sha256": "e5fe3d00d673c2ed739a1c555053fb0675419baf37676f2f07b4650b740b5ab4",
-  "signature": "d8mOktwUdeHCFzImxzLC+xZ/j5mmSSaXpjdbo3c7dt7xQoRdShmiqviwuZwLoPYKITdaeUwCBwZQqmpUfHSHaU9gPGMHcqYmp2xsW1DF0lGQ1AuODXnY2lw64y+21unek2TXlNk+tVNgLm35zbsV8Nd1YbyjpKjVn746ZzKrkrZfyQ6HkfnSscWyrueG+upftHvIIZ1l9dE2s2vakuJjuZ9HrZjSMnpR5lzqvsuav+DUq7Ct4I8daOGaqdHc3HLlu1TPaTfulE2pPAch83y9lgJSYig3+AF6vmkUsBqsXXr86mXuDYAqUPObTA5MpQy6iIuwfUEpaC4+XZZB0ZghGQ=="
+  "notes": "What's new:\n\u2022 Stable Release: Added URL refresh to replace expired links, manual Multiple Links support, modern glass Add Download context menu, and check-for-update refresh.\n\u2022 Removed video clipper/cutting to prevent extraction and playback warnings.\n\u2022 Bypassed Windows SAC/Defender installation blocks.",
+  "sha256": "a55a4174a3ca1b9097e9bed7cf7a87b56948900455da461ff41c1b0ffabd8304",
+  "signature": "jpvImxjgBT4TRaqjQfmkXJLyHt6oaTh1tW63xLDiW4kdcSm32CAkQXNvPS/7QXfAF4EZz6FmtMfYgKFUxDt1U39jHJHm4VPUrmyJ8F9WqvN5hGiHqnxmRpm8PXtpwsimDOIFJH4O0IKG6P/Z+ZyaFM9pdfoQ4vQNv+gBS63MUrHesGKSakDw5/KEty5rFVJhzFU9QNJuoCt5kdF7Sgk+rkw5+mzyJhFnJ0IZ2N45R1BwaB194aHnlcNAQnstTN+tMJP/4sGs5gyVCogtOx8EkzfhQ5Vrm9xRPs8xZOgnVOj/ViV4j827uaQ841QUT0spTWQSYCbJYE1ud6qboW/RfA=="
 }

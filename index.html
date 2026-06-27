@@ -111,8 +111,38 @@
   .dl-arrow .shaft{stroke-dasharray:14;stroke-dashoffset:0;animation:dlshaft 1.5s ease-in-out infinite}
   @keyframes dlbounce{0%,100%{transform:translateY(-1px)}45%{transform:translateY(3px)}}
   @keyframes dlshaft{0%,100%{opacity:1}50%{opacity:.55}}
-  .btn:hover .dl-arrow{animation-duration:.9s}
-  @media (prefers-reduced-motion: reduce){ .dl-arrow,.dl-arrow .shaft{animation:none} }
+  .sac-alert {
+    max-width: 680px;
+    margin: 20px auto 30px auto;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #ef4444;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .sac-alert-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #f87171;
+  }
+  @media (prefers-color-scheme: light) {
+    .sac-alert {
+      background: rgba(220, 38, 38, 0.05);
+      border-color: rgba(220, 38, 38, 0.2);
+      color: #b91c1c;
+    }
+    .sac-alert-title {
+      color: #991b1b;
+    }
+  }
 </style>
 </head>
 <body>
@@ -128,6 +158,20 @@
 
   <header class="hero">
     <span class="pill">Version 1.0 · Windows 10/11</span>
+    
+    <div class="sac-alert">
+      <div style="font-size: 24px; line-height: 1;">⚠️</div>
+      <div>
+        <div class="sac-alert-title">Windows Smart App Control &amp; Defender Notice / تنبيه هام بخصوص الحماية في ويندوز</div>
+        <div style="margin-bottom: 8px; opacity: 0.9;">
+          <strong>English:</strong> Since the application currently does not have a commercial code-signing certificate, Windows 11 Smart App Control (SAC) or Windows Defender might flag the installer as untrusted. If you get a block message, please temporarily disable Smart App Control or click "More Info" -> "Run Anyway" in Defender to complete the installation.
+        </div>
+        <div style="opacity: 0.9; direction: rtl; text-align: right;">
+          <strong>العربية:</strong> نظراً لعدم توفر شهادة رقمية تجارية للبرنامج حالياً، قد يظهر تنبيه من ميزة Smart App Control أو Windows Defender. إذا واجهت مشكلة في التثبيت، يرجى إيقاف Smart App Control مؤقتاً أو اختيار "More Info" ثم "Run Anyway" لإتمام التثبيت بأمان.
+        </div>
+      </div>
+    </div>
+
     <h1>Download <span class="grad">everything</span>,<br/>faster.</h1>
     <p class="lead">Prime Download Manager accelerates every download with multiple connections, captures files from your browser, grabs videos &amp; playlists, handles torrents — all in a beautiful Glass or Classic interface.</p>
     <div class="cta">
