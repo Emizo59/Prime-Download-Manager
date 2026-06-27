@@ -114,7 +114,8 @@ jobs:
           $libcurl = if (Test-Path "$env:CURL_DIR\bin\libcurl-x64.dll") { "$env:CURL_DIR\bin\libcurl-x64.dll" } else { "$env:CURL_DIR\lib\libcurl-x64.dll" }
           Copy-Item $libcurl build\ -Force
           Copy-Item thirdparty\mingw64\bin\libtorrent-rasterbar.dll build\ -Force
-          Copy-Item dist\extractor build\extractor -Recurse -Force
+          New-Item -ItemType Directory -Force build\extractor | Out-Null
+          Copy-Item dist\extractor\* build\extractor\ -Recurse -Force
           Copy-Item tools\yt-dlp.exe build\ -Force
           Copy-Item tools\ffmpeg.exe build\ -Force
           Copy-Item extension build\extension -Recurse -Force
