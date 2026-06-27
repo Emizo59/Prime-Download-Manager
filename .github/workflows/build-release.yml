@@ -77,7 +77,7 @@ jobs:
           if (-not (Test-Path "$dir\include\curl\curl.h")) { throw "curl headers not found" }
           "CURL_DIR=$dir" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
 
-      - name: Fetch yt-dlp.exe + ffmpeg.exe (bundled tools)
+      - name: Fetch yt-dlp.exe + ffmpeg.exe + ffprobe.exe (bundled tools)
         run: |
           New-Item -ItemType Directory -Force -Path tools | Out-Null
           Invoke-WebRequest -Uri "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe" -OutFile tools\yt-dlp.exe
@@ -86,6 +86,9 @@ jobs:
           $ff = (Get-ChildItem ff_dl -Recurse -Filter ffmpeg.exe | Select-Object -First 1).FullName
           if (-not $ff) { throw "ffmpeg.exe not found in archive" }
           Copy-Item $ff tools\ffmpeg.exe -Force
+          $fprobe = (Get-ChildItem ff_dl -Recurse -Filter ffprobe.exe | Select-Object -First 1).FullName
+          if (-not $fprobe) { throw "ffprobe.exe not found in archive" }
+          Copy-Item $fprobe tools\ffprobe.exe -Force
 
       - name: Configure (Ninja + Qt MinGW 13.1.0 — same flags as build_mingw.bat)
         run: |
@@ -118,6 +121,7 @@ jobs:
           Copy-Item dist\extractor\* build\extractor\ -Recurse -Force
           Copy-Item tools\yt-dlp.exe build\ -Force
           Copy-Item tools\ffmpeg.exe build\ -Force
+          Copy-Item tools\ffprobe.exe build\ -Force
           Copy-Item extension build\extension -Recurse -Force
           if (Test-Path extension.crx) { Copy-Item extension.crx build\ -Force }
           Copy-Item tutorial.html build\ -Force
