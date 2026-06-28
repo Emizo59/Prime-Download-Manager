@@ -48,16 +48,16 @@ jobs:
           arch: win64_mingw
           tools: 'tools_mingw1310 tools_ninja'
 
-      - name: Install Python (for the PyInstaller extractor build)
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Build extractor.exe (PyInstaller)
+      - name: Stage the official, signed embeddable Python (extraction backend #2)
         run: |
-          python -m pip install --upgrade pip pyinstaller
-          pyinstaller --noconfirm extractor.spec
-          if (-not (Test-Path "dist\extractor.exe")) { throw "extractor.exe build failed" }
+          # Replaces the unsigned PyInstaller extractor.exe: a PSF-signed python.exe runs
+          # the plain extractor.py, so Windows SAC/Defender only see a trusted signature.
+          ./tools/setup_python_embed.ps1 -OutDir build
+          $sig = Get-AuthenticodeSignature build/python/python.exe
+          if ($sig.Status -ne 'Valid' -or $sig.SignerCertificate.Subject -notlike '*Python Software Foundation*') {
+            throw "bundled python.exe is not validly PSF-signed: $($sig.Status)"
+          }
+          Write-Host "python.exe PSF-signed OK: $($sig.SignerCertificate.Subject)"
 
       # Prebuilt libtorrent/boost live on the private repo's ci-deps-win release —
       - name: Fetch prebuilt libtorrent + boost
@@ -77,14 +77,22 @@ jobs:
           if (-not (Test-Path "$dir\include\curl\curl.h")) { throw "curl headers not found" }
           "CURL_DIR=$dir" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
 
-      - name: Fetch yt-dlp.exe + ffmpeg.exe (bundled tools)
+      - name: Fetch yt-dlp zipapp (pinned + SHA-256) + ffmpeg.exe
         run: |
-          New-Item -ItemType Directory -Force -Path tools | Out-Null
-          Invoke-WebRequest -Uri "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe" -OutFile tools\yt-dlp.exe
+          # yt-dlp as the platform-independent ZIPAPP (not yt-dlp.exe) so the signed python
+          # interpreter loads it as a module — no unsigned executable. ffmpeg has no signed
+          # official build, so it stays a normal bundled binary.
+          New-Item -ItemType Directory -Force -Path build\tools | Out-Null
+          $ver = "2026.06.09"
+          $sha = "e5d57466682cfa9d61e9cf7c8a4f09b00f4a62af37d3bbdc4bcffdf63615feac"
+          Invoke-WebRequest -Uri "https://github.com/yt-dlp/yt-dlp/releases/download/$ver/yt-dlp" -OutFile build\tools\yt-dlp
+          $actual = (Get-FileHash -Algorithm SHA256 build\tools\yt-dlp).Hash.ToLower()
+          if ($actual -ne $sha) { throw "yt-dlp zipapp SHA-256 mismatch: expected $sha got $actual" }
           Invoke-WebRequest -Uri "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip" -OutFile ff.zip
           Expand-Archive ff.zip -DestinationPath ff_dl -Force
           $ff = (Get-ChildItem ff_dl -Recurse -Filter ffmpeg.exe | Select-Object -First 1).FullName
           if (-not $ff) { throw "ffmpeg.exe not found in archive" }
+          New-Item -ItemType Directory -Force -Path tools | Out-Null
           Copy-Item $ff tools\ffmpeg.exe -Force
 
       - name: Configure (Ninja + Qt MinGW 13.1.0 — same flags as build_mingw.bat)
@@ -114,13 +122,23 @@ jobs:
           $libcurl = if (Test-Path "$env:CURL_DIR\bin\libcurl-x64.dll") { "$env:CURL_DIR\bin\libcurl-x64.dll" } else { "$env:CURL_DIR\lib\libcurl-x64.dll" }
           Copy-Item $libcurl build\ -Force
           Copy-Item thirdparty\mingw64\bin\libtorrent-rasterbar.dll build\ -Force
-          Copy-Item dist\extractor.exe build\ -Force
-          Copy-Item tools\yt-dlp.exe build\ -Force
+          # Extraction backend (#2): plain extractor.py next to the staged yt-dlp zipapp;
+          # the signed python interpreter already lives in build\python (staged earlier).
+          New-Item -ItemType Directory -Force -Path build\tools | Out-Null
+          Copy-Item tools\extractor.py build\tools\extractor.py -Force
           Copy-Item tools\ffmpeg.exe build\ -Force
           Copy-Item extension build\extension -Recurse -Force
           if (Test-Path extension.crx) { Copy-Item extension.crx build\ -Force }
           Copy-Item tutorial.html build\ -Force
 
+      - name: Assert #2 layout (signed python + scripts, NO unsigned stubs)
+        run: |
+          foreach ($p in @("build\python\python.exe","build\tools\extractor.py","build\tools\yt-dlp","build\ffmpeg.exe")) {
+            if (-not (Test-Path $p)) { throw "missing required #2 artifact: $p" }
+          }
+          if (Test-Path "build\extractor.exe") { throw "build\extractor.exe present — #2 must not ship it" }
+          if (Test-Path "build\yt-dlp.exe")    { throw "build\yt-dlp.exe present — #2 must not ship it" }
+          Write-Host "#2 layout OK: signed python.exe + extractor.py + yt-dlp zipapp, no unsigned stubs."
 
       - name: Compile installer (Inno Setup)
         run: |
@@ -129,7 +147,6 @@ jobs:
           if (-not (Test-Path $iscc)) { throw "ISCC.exe not found at $iscc" }
           & $iscc setup.iss
           if (-not (Test-Path "installer\Prime_Download_Manager_Setup.exe")) { throw "installer not produced" }
-
 
       - name: Upload installer as build artifact
         uses: actions/upload-artifact@v4
