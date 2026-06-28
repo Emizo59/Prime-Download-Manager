@@ -29,9 +29,9 @@ jobs:
           ref: ${{ github.event.inputs.source_ref }}
           token: ${{ secrets.SOURCE_REPO_TOKEN }}
 
-      - name: Sanity — required extraction files present
+      - name: Sanity — required source files present
         run: |
-          foreach ($f in @("tools/extractor.py","tools/yt-dlp","tools/setup_python_embed.ps1")) {
+          foreach ($f in @("tools/extractor.py","tools/setup_python_embed.ps1")) {
             if (-not (Test-Path $f)) { throw "missing required file: $f" }
           }
 
@@ -48,11 +48,20 @@ jobs:
             throw "python.exe signer is not the Python Software Foundation"
           }
 
-      - name: Stage extractor.py + yt-dlp zipapp next to the interpreter
+      - name: Fetch the official yt-dlp zipapp (pinned + SHA-256 verified)
         run: |
+          # The yt-dlp zipapp is a build artifact (gitignored, like ffmpeg), so fetch it
+          # from the official release rather than the source tree. Pure-Python, no .exe.
           New-Item -ItemType Directory -Force -Path build/tools | Out-Null
-          Copy-Item tools/extractor.py build/tools/extractor.py -Force
-          Copy-Item tools/yt-dlp       build/tools/yt-dlp       -Force
+          $ver = "2026.06.09"
+          $sha = "e5d57466682cfa9d61e9cf7c8a4f09b00f4a62af37d3bbdc4bcffdf63615feac"
+          Invoke-WebRequest -Uri "https://github.com/yt-dlp/yt-dlp/releases/download/$ver/yt-dlp" -OutFile build/tools/yt-dlp
+          $actual = (Get-FileHash -Algorithm SHA256 build/tools/yt-dlp).Hash.ToLower()
+          if ($actual -ne $sha) { throw "yt-dlp zipapp SHA-256 mismatch: expected $sha got $actual" }
+          Write-Host "yt-dlp $ver verified."
+
+      - name: Stage extractor.py next to the interpreter
+        run: Copy-Item tools/extractor.py build/tools/extractor.py -Force
 
       - name: Run a real extraction through the signed interpreter (the #2 path)
         env:
