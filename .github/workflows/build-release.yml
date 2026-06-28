@@ -19,6 +19,14 @@ on:
       release_tag:
         description: 'Release tag to publish on THIS repo (e.g. v1.0.6)'
         required: true
+      prerelease:
+        description: 'Publish as a pre-release (keeps the current stable as Latest)'
+        type: boolean
+        default: true
+      make_latest:
+        description: 'Mark as Latest (promotes over current stable — leave false to keep v1.0.x)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write          # create the release + upload the asset on THIS repo
@@ -161,8 +169,8 @@ jobs:
           tag_name: ${{ github.event.inputs.release_tag }}
           name: Prime Download Manager ${{ github.event.inputs.release_tag }}
           draft: false
-          prerelease: false
-          make_latest: true
+          prerelease: ${{ github.event.inputs.prerelease }}
+          make_latest: ${{ github.event.inputs.make_latest }}
           fail_on_unmatched_files: true
           files: |
             installer/Prime_Download_Manager_Setup.exe
