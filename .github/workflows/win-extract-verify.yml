@@ -1,0 +1,77 @@
+name: Verify Windows extraction (signed python-embed)
+
+# Focused check for the Windows "#2" hardening: proves that the OFFICIAL, code-signed
+# embeddable Python + the yt-dlp zipapp + extractor.py successfully extract a YouTube
+# video WITHOUT any unsigned PyInstaller stub (extractor.exe / yt-dlp.exe). Runs on this
+# PUBLIC repo's free Windows minutes; the private source is cloned into the ephemeral
+# runner only (via SOURCE_REPO_TOKEN, repo name hidden behind SOURCE_REPO_NAME) and is
+# discarded when the job ends — nothing is published here. Delete the run when done.
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: 'Branch or tag in private source to verify'
+        required: true
+
+jobs:
+  verify-windows-extraction:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout private source (runner only — never published here)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.SOURCE_REPO_NAME }}
+          ref: ${{ github.event.inputs.source_ref }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN }}
+
+      - name: Sanity — required extraction files present
+        run: |
+          foreach ($f in @("tools/extractor.py","tools/yt-dlp","tools/setup_python_embed.ps1")) {
+            if (-not (Test-Path $f)) { throw "missing required file: $f" }
+          }
+
+      - name: Stage the official, signed Windows embeddable Python
+        run: ./tools/setup_python_embed.ps1 -OutDir build
+
+      - name: Assert python.exe is validly Authenticode-signed by the PSF
+        run: |
+          $sig = Get-AuthenticodeSignature build/python/python.exe
+          Write-Host "Status : $($sig.Status)"
+          Write-Host "Signer : $($sig.SignerCertificate.Subject)"
+          if ($sig.Status -ne 'Valid') { throw "python.exe signature not Valid: $($sig.Status)" }
+          if ($sig.SignerCertificate.Subject -notlike '*Python Software Foundation*') {
+            throw "python.exe signer is not the Python Software Foundation"
+          }
+
+      - name: Stage extractor.py + yt-dlp zipapp next to the interpreter
+        run: |
+          New-Item -ItemType Directory -Force -Path build/tools | Out-Null
+          Copy-Item tools/extractor.py build/tools/extractor.py -Force
+          Copy-Item tools/yt-dlp       build/tools/yt-dlp       -Force
+
+      - name: Run a real extraction through the signed interpreter (the #2 path)
+        env:
+          EXTRACTOR_DATA_DIR: ${{ runner.temp }}
+        run: |
+          $py  = "build/python/python.exe"
+          $url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          & $py build/tools/extractor.py $url 1> out.json 2> err.txt
+          $code = $LASTEXITCODE
+          Write-Host "--- extractor stderr (tail) ---"
+          Get-Content err.txt -ErrorAction SilentlyContinue | Select-Object -Last 25
+          if ($code -ne 0) { throw "extractor exited with code $code" }
+          $j = Get-Content out.json -Raw | ConvertFrom-Json
+          if (-not $j.success)        { throw "extraction reported failure: $($j.error)" }
+          if ($j.formats.Count -lt 1) { throw "no formats returned" }
+          Write-Host "OK  title='$($j.title)'  formats=$($j.formats.Count)"
+
+      - name: Confirm NO unsigned PyInstaller stubs are involved
+        run: |
+          if (Test-Path build/tools/extractor.exe) { throw "extractor.exe present — should be python.exe + .py" }
+          if (Test-Path build/tools/yt-dlp.exe)    { throw "yt-dlp.exe present — should be the zipapp" }
+          Write-Host "Confirmed: signed python.exe + plain extractor.py + yt-dlp zipapp only."
