@@ -306,6 +306,22 @@
     });
   })();
 
+  // ── Telemetry: count this website visit on the PDM telemetry worker. Purely
+  //    browser-side and independent of the desktop app's install/uninstall counter. ──
+  (function () {
+    try {
+      var k = 'pdm_vid';
+      var vid = localStorage.getItem(k);
+      if (!vid) {
+        vid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+              : (Date.now().toString(36) + Math.random().toString(36).slice(2));
+        localStorage.setItem(k, vid);
+      }
+      fetch('https://pdm-telemetry.motaz-mizo59.workers.dev/api/visit?vid=' + encodeURIComponent(vid),
+            { method: 'POST', mode: 'cors', keepalive: true }).catch(function () {});
+    } catch (e) {}
+  })();
+
   // ── Live stats: real download count (CounterAPI + baseline) + visitor count (counter API) ──
   (function () {
     function animateTo(el, target) {
