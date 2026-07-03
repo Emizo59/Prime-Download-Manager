@@ -1,8 +1,8 @@
 {
-  "build": 2026062701,
-  "version": "1.0",
+  "build": 2026070313,
+  "version": "1.2",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n\u2022 Stable Release: Added URL refresh to replace expired links, manual Multiple Links support, modern glass Add Download context menu, and check-for-update refresh.\n\u2022 Removed video clipper/cutting to prevent extraction and playback warnings.\n\u2022 Bypassed Windows SAC/Defender installation blocks.",
-  "sha256": "a55a4174a3ca1b9097e9bed7cf7a87b56948900455da461ff41c1b0ffabd8304",
-  "signature": "jpvImxjgBT4TRaqjQfmkXJLyHt6oaTh1tW63xLDiW4kdcSm32CAkQXNvPS/7QXfAF4EZz6FmtMfYgKFUxDt1U39jHJHm4VPUrmyJ8F9WqvN5hGiHqnxmRpm8PXtpwsimDOIFJH4O0IKG6P/Z+ZyaFM9pdfoQ4vQNv+gBS63MUrHesGKSakDw5/KEty5rFVJhzFU9QNJuoCt5kdF7Sgk+rkw5+mzyJhFnJ0IZ2N45R1BwaB194aHnlcNAQnstTN+tMJP/4sGs5gyVCogtOx8EkzfhQ5Vrm9xRPs8xZOgnVOj/ViV4j827uaQ841QUT0spTWQSYCbJYE1ud6qboW/RfA=="
+  "notes": "What's new in 1.2:\n\u2022 Added a native macOS build (Apple Silicon & Intel).\n\u2022 Clip a video \u2014 now fast (finishes in seconds, no full re-encode).\n\u2022 Torrent queue + auto-stop schedule.\n\u2022 Opens automatically when you start a download while it's closed.\n\u2022 Browser extension & security hardening.",
+  "sha256": "0dae7a369174320fcbf810d9533e8f73952d9967a70c0be489ad24760d45d610",
+  "signature": "lUtIVTta6wZ+KrwNmMc0bYnCM07sVYGpn15zl0tpgyAxR5ttR1i8pFD1DVM/qqQnghgQrspXt66kpAzyMFk00HXvDXsMlbIMDUyYOL2rx019syMiXV0q7YLQoj8voJPcQQR6rAyB9KN9OXNlB4dqJ2zUfmc40dU6qFm+WLtydommOun4atgwENOxt6rUJbfz6RZ3vuJoSuhAKI56ITUuA+y0Ueak88yuZwaQopNWiU54pgHU9CmmtzLuKv8vDaZZBoM0FCAOTlGRnJZUtuwSHb7+3cU8z3qXeGmI4cNqma/tYV4gvW+i95IMa48BeS8AWlzrsmsV/DReufbJs8bWxw=="
 }
