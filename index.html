@@ -143,6 +143,39 @@
       color: #991b1b;
     }
   }
+  /* Neutral info box (not a warning) — used for the macOS "how to open" steps. */
+  .info-alert {
+    max-width: 680px;
+    margin: 20px auto 30px auto;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.28);
+    color: #c7d2e8;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .info-alert-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #60a5fa;
+  }
+  @media (prefers-color-scheme: light) {
+    .info-alert {
+      background: rgba(37, 99, 235, 0.05);
+      border-color: rgba(37, 99, 235, 0.2);
+      color: #334155;
+    }
+    .info-alert-title {
+      color: #1d4ed8;
+    }
+  }
 </style>
 </head>
 <body>
@@ -172,10 +205,10 @@
       </div>
     </div>
 
-    <div class="sac-alert" id="macNotice" style="display:none">
+    <div class="info-alert" id="macNotice" style="display:none">
       <div style="font-size: 24px; line-height: 1;">🍎</div>
       <div>
-        <div class="sac-alert-title">طريقة فتح البرنامج على ماك (أول مرة) / How to open on macOS (first time)</div>
+        <div class="info-alert-title">طريقة فتح البرنامج على ماك (أول مرة) / How to open on macOS (first time)</div>
         <div style="margin-bottom: 10px; opacity: 0.95; direction: rtl; text-align: right; font-weight: 700;">
           البرنامج غير موقّع بشهادة Apple، فأول مرة ماك ممكن يقول "cannot be opened". لتشغيله: افتح الـ DMG واسحب البرنامج إلى Applications، بعدين <strong>كليك يمين</strong> على البرنامج → <strong>Open</strong> → <strong>Open</strong>. أو من <strong>System Settings ← Privacy &amp; Security</strong> اضغط <strong>Open Anyway</strong>. بتعملها مرة واحدة بس، وبعدها بيفتح عادي بالدبل-كليك. (فيه ملف "READ ME FIRST" جوّه الـ DMG بيشرح ده بالعربي والإنجليزي.)
         </div>
