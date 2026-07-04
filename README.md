@@ -138,7 +138,7 @@ Wherever you choose — set a default download folder in **Settings**, or pick a
 
 ### Developed By **Dr. Moataz**
 
-[![Build](https://img.shields.io/badge/build-2026070313-2563eb?style=flat-square)](https://github.com/Emizo59/Prime-Download-Manager/releases) &nbsp; [![Privacy Policy](https://img.shields.io/badge/privacy--policy-10b981?style=flat-square)](https://emizo59.github.io/download-manager/privacy-policy)
+[![Build](https://img.shields.io/badge/build-2026070317-2563eb?style=flat-square)](https://github.com/Emizo59/Prime-Download-Manager/releases) &nbsp; [![Privacy Policy](https://img.shields.io/badge/privacy--policy-10b981?style=flat-square)](https://emizo59.github.io/download-manager/privacy-policy)
 
 © 2026 Prime Download Manager (PDM). All rights reserved.
 
