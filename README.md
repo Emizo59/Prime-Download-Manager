@@ -12,7 +12,7 @@ Multi-connection acceleration · Video & playlist downloads · Video clipping ·
 &nbsp;
 [![Download macOS](https://img.shields.io/badge/⬇_Download-macOS-000000?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_macOS.dmg)
 &nbsp;
-[![Version](https://img.shields.io/badge/version-1.2-22c55e?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest)
+[![Version](https://img.shields.io/badge/version-1.2.1-22c55e?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest)
 
 <br/>
 
@@ -138,7 +138,7 @@ Wherever you choose — set a default download folder in **Settings**, or pick a
 
 ### Developed By **Dr. Moataz**
 
-[![Build](https://img.shields.io/badge/build-2026070317-2563eb?style=flat-square)](https://github.com/Emizo59/Prime-Download-Manager/releases) &nbsp; [![Privacy Policy](https://img.shields.io/badge/privacy--policy-10b981?style=flat-square)](https://emizo59.github.io/download-manager/privacy-policy)
+[![Build](https://img.shields.io/badge/build-2026070319-2563eb?style=flat-square)](https://github.com/Emizo59/Prime-Download-Manager/releases) &nbsp; [![Privacy Policy](https://img.shields.io/badge/privacy--policy-10b981?style=flat-square)](https://emizo59.github.io/download-manager/privacy-policy)
 
 © 2026 Prime Download Manager (PDM). All rights reserved.
 
