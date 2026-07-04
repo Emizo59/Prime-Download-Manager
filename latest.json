@@ -1,8 +1,8 @@
 {
-  "build": 2026070313,
+  "build": 2026070317,
   "version": "1.2",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new in 1.2:\n\u2022 Added a native macOS build (Apple Silicon & Intel).\n\u2022 Clip a video \u2014 now fast (finishes in seconds, no full re-encode).\n\u2022 Torrent queue + auto-stop schedule.\n\u2022 Opens automatically when you start a download while it's closed.\n\u2022 Browser extension & security hardening.",
-  "sha256": "0dae7a369174320fcbf810d9533e8f73952d9967a70c0be489ad24760d45d610",
-  "signature": "lUtIVTta6wZ+KrwNmMc0bYnCM07sVYGpn15zl0tpgyAxR5ttR1i8pFD1DVM/qqQnghgQrspXt66kpAzyMFk00HXvDXsMlbIMDUyYOL2rx019syMiXV0q7YLQoj8voJPcQQR6rAyB9KN9OXNlB4dqJ2zUfmc40dU6qFm+WLtydommOun4atgwENOxt6rUJbfz6RZ3vuJoSuhAKI56ITUuA+y0Ueak88yuZwaQopNWiU54pgHU9CmmtzLuKv8vDaZZBoM0FCAOTlGRnJZUtuwSHb7+3cU8z3qXeGmI4cNqma/tYV4gvW+i95IMa48BeS8AWlzrsmsV/DReufbJs8bWxw=="
+  "notes": "What's new in 1.2:\n\u2022 Torrents now work on Windows even with Smart App Control on (no more \"Bad Image\" error).\n\u2022 The app now reliably starts with Windows.\n\u2022 New (Windows): save high-quality YouTube as MP4.\n\u2022 More accurate update statistics.\n\u2022 Native macOS build (Apple Silicon & Intel).",
+  "sha256": "d96e7bde767b2410de8c06a0caf3fb69e742158f86a4066e471fbfe2a74628b7",
+  "signature": "Plo9a2b3Pqx5JQqkcqQRly7WEeyZXs7/kuO69/DqZDxEOseHlevCRKGuuLsYs2Ahusumc5GIw8lkTptDIaUepQNJgEdYAAntFJVCEmNr5emQmjAHUq57lae/D8nsf0LShgQHT3rE6bkRLIzyWSBsWCrcE6S8AKKKTxcot/Rtwdo5K5fHKM42MMGyAr8vD+s2It+X5S09NqaboMBQp1nclzM6BkNC4+oTJ1dzeF4OTxPZUvLemFs5/nu79TwUksiXst/GSWxyV35YfYN0bz2nH8eECJtDNeUxRdqrZELoPYe0/NrZHHOoW/fEdQxtzWBms/HLEsUMtYEy78Ums3zlMg=="
 }
