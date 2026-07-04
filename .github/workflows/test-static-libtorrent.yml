@@ -40,6 +40,14 @@ jobs:
           arch: win64_mingw
           tools: 'tools_mingw1310 tools_ninja'
 
+      - name: Pin CMake 3.31 (CMake 4.x dropped the FindBoost module libtorrent needs)
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-windows-x86_64.zip" -OutFile cmake.zip
+          Expand-Archive cmake.zip -DestinationPath cmake_dl -Force
+          $bin = ((Get-ChildItem cmake_dl -Directory | Select-Object -First 1).FullName) + "\bin"
+          "$bin" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+          & "$bin\cmake.exe" --version
+
       - name: Fetch prebuilt libtorrent + boost headers (ci-deps-win)
         env:
           GH_TOKEN: ${{ secrets.SOURCE_REPO_TOKEN }}
