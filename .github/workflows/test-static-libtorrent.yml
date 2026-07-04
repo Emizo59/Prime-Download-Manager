@@ -95,7 +95,7 @@ jobs:
             -DCMAKE_C_COMPILER="$mingw/gcc.exe" -DCMAKE_CXX_COMPILER="$mingw/g++.exe" `
             -DCMAKE_PREFIX_PATH="$qt;$curl;C:/msys64/mingw64" `
             -DCMAKE_EXE_LINKER_FLAGS="-LC:/msys64/mingw64/lib" 2>&1 | Tee-Object -Variable cfg
-          if ($cfg -notmatch 'libtorrent: STATIC archive') { throw "CMake did NOT select the static archive" }
+          if (-not (($cfg | Out-String) -match 'libtorrent: STATIC archive')) { throw "CMake did NOT select the static archive" }
 
       - name: Build app (the real static-link + COFF test)
         run: |
