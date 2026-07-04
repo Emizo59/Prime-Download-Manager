@@ -1,8 +1,8 @@
 {
-  "build": 2026070317,
-  "version": "1.2",
+  "build": 2026070319,
+  "version": "1.2.1",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new in 1.2:\n\u2022 Torrents now work on Windows even with Smart App Control on (no more \"Bad Image\" error).\n\u2022 The app now reliably starts with Windows.\n\u2022 New (Windows): save high-quality YouTube as MP4.\n\u2022 More accurate update statistics.\n\u2022 Native macOS build (Apple Silicon & Intel).",
-  "sha256": "d96e7bde767b2410de8c06a0caf3fb69e742158f86a4066e471fbfe2a74628b7",
-  "signature": "Plo9a2b3Pqx5JQqkcqQRly7WEeyZXs7/kuO69/DqZDxEOseHlevCRKGuuLsYs2Ahusumc5GIw8lkTptDIaUepQNJgEdYAAntFJVCEmNr5emQmjAHUq57lae/D8nsf0LShgQHT3rE6bkRLIzyWSBsWCrcE6S8AKKKTxcot/Rtwdo5K5fHKM42MMGyAr8vD+s2It+X5S09NqaboMBQp1nclzM6BkNC4+oTJ1dzeF4OTxPZUvLemFs5/nu79TwUksiXst/GSWxyV35YfYN0bz2nH8eECJtDNeUxRdqrZELoPYe0/NrZHHOoW/fEdQxtzWBms/HLEsUMtYEy78Ums3zlMg=="
+  "notes": "What's new in 1.2.1:\n\u2022 Torrents now work on Windows even with Smart App Control on (no more \"Bad Image\" error).\n\u2022 Fixed the app occasionally opening twice.\n\u2022 The app reliably starts with Windows.\n\u2022 macOS: high-quality video clips now play in QuickTime.\n\u2022 More accurate update statistics.",
+  "sha256": "e12e4c8f7ffa49b4f2976c1792ddfc8874fd2b6228f2d414822b972510263e91",
+  "signature": "lhl9GRb5FQVHtV4gLUHuh/YgQMS5tBOKdl3kxdUaTjyYlcacBFYFdLW6mSmP1+Z2MCJFbjpgzil1XG4kvy6uMDzGlMScM7mFa2MFlOShcMAk378eb/7+e4dlpVS9iRj/4eh8rgC4COH+pL4UkzV0mj+IZVCzV+zgR0Mptx1N4ho1msFqFarmiQzV3JRHCCYT+p4j0Xk/4EzaBBEfBXODKg3zr0px0zOqCvS92d5ASrYLYfEVCCTkgy1ixnh66EFbaEfEXNsfUJLI8t08KAh0FRrDjB/z9T469tLLmBhjhj7boQYMJk6IpQi52grUj1f94GXpQ4lsb3f6sxBDpiRW+w=="
 }
