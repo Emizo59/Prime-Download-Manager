@@ -130,10 +130,13 @@ jobs:
           $qt = ($env:QT_ROOT_DIR -replace '\\','/')
           $curl = ($env:CURL_DIR -replace '\\','/')
           $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:IQTA_TOOLS\Ninja;$env:QT_ROOT_DIR\bin;$env:PATH"
+          # Prerelease builds compile out the telemetry ping so test installs never count.
+          $dmPre = if ('${{ github.event.inputs.prerelease }}' -eq 'true') { 'ON' } else { 'OFF' }
           cmake -B build -G Ninja -DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release `
             -DCMAKE_C_COMPILER="$mingw/gcc.exe" -DCMAKE_CXX_COMPILER="$mingw/g++.exe" `
             -DCMAKE_PREFIX_PATH="$qt;$curl" `
-            -DOPENSSL_ROOT_DIR="C:/msys64/mingw64"
+            -DOPENSSL_ROOT_DIR="C:/msys64/mingw64" `
+            -DDM_PRERELEASE=$dmPre
 
       - name: Build
         run: |
