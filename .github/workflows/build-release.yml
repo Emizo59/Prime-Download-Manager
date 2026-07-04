@@ -77,6 +77,27 @@ jobs:
           tar -xzf dep.tgz -C thirdparty
           if (-not (Test-Path "thirdparty\mingw64\lib\libtorrent-rasterbar.dll.a")) { throw "libtorrent staging failed" }
 
+      - name: Pin CMake 3.31 (CMake 4.x dropped the FindBoost module libtorrent needs)
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-windows-x86_64.zip" -OutFile cmake.zip
+          Expand-Archive cmake.zip -DestinationPath cmake_dl -Force
+          $bin = ((Get-ChildItem cmake_dl -Directory | Select-Object -First 1).FullName) + "\bin"
+          "$bin" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+
+      - name: Install MinGW OpenSSL (MSYS2 static) for the static libtorrent link
+        run: |
+          C:\msys64\usr\bin\pacman -Sy --noconfirm
+          C:\msys64\usr\bin\pacman -S --noconfirm --needed mingw-w64-x86_64-openssl
+          if (-not (Test-Path "C:\msys64\mingw64\lib\libcrypto.a")) { throw "no static libcrypto.a in MSYS2 openssl" }
+
+      - name: Build STATIC libtorrent archive (SAC — absorbed into exe)
+        run: |
+          $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:IQTA_TOOLS\Ninja;$env:QT_ROOT_DIR\bin;$env:PATH"
+          $env:MINGW_DIR = "$env:IQTA_TOOLS\mingw1310_64"
+          $env:OPENSSL_ROOT_DIR = "C:/msys64/mingw64"
+          powershell -ExecutionPolicy Bypass -File build_libtorrent_static.ps1
+          if (-not (Test-Path "thirdparty\mingw64\lib\libtorrent-rasterbar.a")) { throw "static libtorrent .a not produced" }
+
       - name: Fetch curl (win64 mingw dev headers + import lib + runtime DLL)
         run: |
           Invoke-WebRequest -Uri "https://curl.se/windows/latest.cgi?p=win64-mingw.zip" -OutFile curl.zip
@@ -111,13 +132,22 @@ jobs:
           $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:IQTA_TOOLS\Ninja;$env:QT_ROOT_DIR\bin;$env:PATH"
           cmake -B build -G Ninja -DBUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release `
             -DCMAKE_C_COMPILER="$mingw/gcc.exe" -DCMAKE_CXX_COMPILER="$mingw/g++.exe" `
-            -DCMAKE_PREFIX_PATH="$qt;$curl"
+            -DCMAKE_PREFIX_PATH="$qt;$curl" `
+            -DOPENSSL_ROOT_DIR="C:/msys64/mingw64"
 
       - name: Build
         run: |
           $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:IQTA_TOOLS\Ninja;$env:QT_ROOT_DIR\bin;$env:PATH"
           cmake --build build --parallel
           if (-not (Test-Path "build\Prime Download Manager.exe")) { throw "Prime Download Manager.exe not built" }
+
+      - name: Assert exe absorbed libtorrent + OpenSSL (SAC — no unsigned crypto DLL)
+        run: |
+          $objdump = "$env:IQTA_TOOLS\mingw1310_64\bin\objdump.exe"
+          $deps = & $objdump -p "build\Prime Download Manager.exe" | Select-String 'DLL Name:' | ForEach-Object { ($_ -split ':')[1].Trim() }
+          $bad = $deps | Where-Object { $_ -match 'torrent|libssl|libcrypto|ssl-3|crypto-3' }
+          if ($bad) { throw "exe still imports unsigned crypto/torrent DLL: $($bad -join ', ')" }
+          Write-Host "SAC OK: libtorrent + OpenSSL fully static inside the exe."
 
       - name: Deploy Qt runtime + stage DLLs, tools, extension, tutorial
         run: |
@@ -129,7 +159,6 @@ jobs:
           }
           $libcurl = if (Test-Path "$env:CURL_DIR\bin\libcurl-x64.dll") { "$env:CURL_DIR\bin\libcurl-x64.dll" } else { "$env:CURL_DIR\lib\libcurl-x64.dll" }
           Copy-Item $libcurl build\ -Force
-          Copy-Item thirdparty\mingw64\bin\libtorrent-rasterbar.dll build\ -Force
           # Extraction backend (#2): plain extractor.py next to the staged yt-dlp zipapp;
           # the signed python interpreter already lives in build\python (staged earlier).
           New-Item -ItemType Directory -Force -Path build\tools | Out-Null
