@@ -1,8 +1,8 @@
 {
-  "build": 2026070319,
-  "version": "1.2.1",
+  "build": 2026070601,
+  "version": "1.2.2",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new in 1.2.1:\n\u2022 Torrents now work on Windows even with Smart App Control on (no more \"Bad Image\" error).\n\u2022 Fixed the app occasionally opening twice.\n\u2022 The app reliably starts with Windows.\n\u2022 macOS: high-quality video clips now play in QuickTime.\n\u2022 More accurate update statistics.",
-  "sha256": "e12e4c8f7ffa49b4f2976c1792ddfc8874fd2b6228f2d414822b972510263e91",
-  "signature": "lhl9GRb5FQVHtV4gLUHuh/YgQMS5tBOKdl3kxdUaTjyYlcacBFYFdLW6mSmP1+Z2MCJFbjpgzil1XG4kvy6uMDzGlMScM7mFa2MFlOShcMAk378eb/7+e4dlpVS9iRj/4eh8rgC4COH+pL4UkzV0mj+IZVCzV+zgR0Mptx1N4ho1msFqFarmiQzV3JRHCCYT+p4j0Xk/4EzaBBEfBXODKg3zr0px0zOqCvS92d5ASrYLYfEVCCTkgy1ixnh66EFbaEfEXNsfUJLI8t08KAh0FRrDjB/z9T469tLLmBhjhj7boQYMJk6IpQi52grUj1f94GXpQ4lsb3f6sxBDpiRW+w=="
+  "notes": "What's new in 1.2.2:\n• Security hardening — downloads are restricted to http/https only, and the local browser bridge now rejects untrusted and origin-less requests.\n• Broader automated test coverage and stability improvements.\n• Internal code cleanup (no change to how the app works for you).",
+  "sha256": "14f0680d231952daedddde06fa2a9b97159eb6efbc909776f923c6b3682bd006",
+  "signature": "REtt2zX+Gcgj602L6vbgoeglae8mnechtmsrXpMOXGmZuOnQ71ucT1oCSmmcSaACy6ir/p1UcNphMbKbTL6Jq2jpVxKyoSkLDLRCoaGzkZvUTW6KV7UZ7KeTTx22gGTFw224euVvWhC7hurpL8j9IfevfT1/cnALcRN+LDvvm0Ej6noRgON/jQpXvs3M92kt0J6FhLdRBfUd1Ew7eoAc32dU/xwfy6lJW9rsu00ijV4pWLPqzvs7JaG8ilOF4B8KlAu9PXEyHynDUdG8yq+2dcp0RlIfOVsNo37TLR7qAMYd84QsptqvXhZ7hQvZ00m/4kGN4VTtMKv3vg6xvaPBVA=="
 }
