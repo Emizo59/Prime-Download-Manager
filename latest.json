@@ -1,8 +1,8 @@
 {
-  "build": 2026070601,
-  "version": "1.2.2",
+  "build": 2026070602,
+  "version": "1.2.3",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new in 1.2.2:\n• Security hardening — downloads are restricted to http/https only, and the local browser bridge now rejects untrusted and origin-less requests.\n• Broader automated test coverage and stability improvements.\n• Internal code cleanup (no change to how the app works for you).",
-  "sha256": "14f0680d231952daedddde06fa2a9b97159eb6efbc909776f923c6b3682bd006",
-  "signature": "REtt2zX+Gcgj602L6vbgoeglae8mnechtmsrXpMOXGmZuOnQ71ucT1oCSmmcSaACy6ir/p1UcNphMbKbTL6Jq2jpVxKyoSkLDLRCoaGzkZvUTW6KV7UZ7KeTTx22gGTFw224euVvWhC7hurpL8j9IfevfT1/cnALcRN+LDvvm0Ej6noRgON/jQpXvs3M92kt0J6FhLdRBfUd1Ew7eoAc32dU/xwfy6lJW9rsu00ijV4pWLPqzvs7JaG8ilOF4B8KlAu9PXEyHynDUdG8yq+2dcp0RlIfOVsNo37TLR7qAMYd84QsptqvXhZ7hQvZ00m/4kGN4VTtMKv3vg6xvaPBVA=="
+  "notes": "What's new in 1.2.3:\n• Bug fixes and stability improvements.",
+  "sha256": "fbe15dffdaf8bb25801e79b80b642770da48799d1f25e351286562fdc1929fe8",
+  "signature": "X1IvGV5jNa7S8lMTifGwnxxYH21bBJhEy6TpJ25WkWRqa3uG7dpuIAGToPAvJigj7sI1RWHGoj0eKKR1dJcpQnuVBu5jgoXcpKDPBSFpejleOj6wV+D6w5/vVZ9fJiRVSnAtk648XhN18KRszxTnMuNIL3etfRlvRxpGWiMrkufPLOMmb1sXk6seFZhmxLloe7q4jia3NkKmqh/3+XTXSYKSSpiKOFIXatkuGxcd8lwsv8C2wVmFF0F52lfYGb2iFOtVJBRmnJIeCIix1yS9oomjuwkdfW29GSzJl2nx8c17V04G3yjwfw+P74SNys02iKpVv4Rmhtc9TDbTClOWlw=="
 }
