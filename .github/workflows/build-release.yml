@@ -294,7 +294,9 @@ jobs:
         run: |
           export QMAKE="$QT_ROOT_DIR/bin/qmake6"
           export PATH="$QT_ROOT_DIR/bin:$PATH"
-          ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt --output appimage
+          ./linuxdeploy-x86_64.AppImage --appdir AppDir \
+            --icon-file resources/appicon.png --icon-filename downloadmanager \
+            --plugin qt --output appimage
           ls -lh Prime_Download_Manager-x86_64.AppImage
 
       - name: Smoke test (headless, bundled Qt only)
