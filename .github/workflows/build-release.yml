@@ -206,3 +206,121 @@ jobs:
           fail_on_unmatched_files: true
           files: |
             installer/Prime_Download_Manager_Setup.exe
+
+  # ── Linux AppImage ───────────────────────────────────────────────────────────
+  # Same token-gated private-source build as the Windows job, packaged as a self-contained
+  # AppImage: Qt + QML modules via linuxdeploy-plugin-qt, plus the frozen extractor, the
+  # pinned yt-dlp zipapp and a static ffmpeg staged into the AppDir so extraction, Clip and
+  # merge need nothing from the host. Ubuntu 24.04's Qt (6.4) lacks QtQuick.Effects, so we
+  # pin Qt 6.7.3 via aqt (as Windows pins 6.9.3). Runs after the Windows job so the release
+  # already exists, smoke-tests the AppImage headless (bundled Qt only), then attaches it to
+  # the SAME release with the same prerelease/make_latest flags — so both ship-test and ship
+  # publish it. If this job fails the Windows installer is unaffected (already published).
+  linux-appimage:
+    needs: windows-installer
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      APPIMAGE_EXTRACT_AND_RUN: "1"   # runners have no FUSE; run nested AppImages by extracting
+    steps:
+      - name: Checkout private source
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.SOURCE_REPO_NAME }}
+          ref: ${{ github.event.inputs.source_ref }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN }}
+
+      - name: Install system libs
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential cmake ninja-build pkg-config file wget xz-utils \
+            python3 python3-pip python3-venv \
+            libcurl4-openssl-dev libtorrent-rasterbar-dev libssl-dev \
+            libgl1-mesa-dev libxkbcommon0 libxcb-cursor0 libfuse2
+
+      - name: Install Qt 6.7.3 (linux gcc_64)
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.7.3'
+          host: linux
+          target: desktop
+          arch: linux_gcc_64
+
+      - name: Build frozen extractor (PyInstaller) — browser-download /extract path
+        run: |
+          python3 -m pip install --user --upgrade pyinstaller yt-dlp
+          python3 -m PyInstaller --clean --noconfirm \
+            --distpath tools --workpath build/pyi extractor.spec
+          test -f tools/extractor
+
+      - name: Configure + build (Release)
+        run: |
+          cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$QT_ROOT_DIR"
+          cmake --build build --parallel
+
+      - name: Install into AppDir
+        run: DESTDIR="$PWD/AppDir" cmake --install build --prefix /usr
+
+      - name: Stage tools into the AppDir (self-contained extraction + clip + merge)
+        run: |
+          mkdir -p AppDir/usr/bin/tools
+          ver="2026.06.09"
+          sha="e5d57466682cfa9d61e9cf7c8a4f09b00f4a62af37d3bbdc4bcffdf63615feac"
+          wget -qO AppDir/usr/bin/tools/yt-dlp \
+            "https://github.com/yt-dlp/yt-dlp/releases/download/$ver/yt-dlp"
+          echo "$sha  AppDir/usr/bin/tools/yt-dlp" | sha256sum -c -
+          chmod +x AppDir/usr/bin/tools/yt-dlp
+          install -m755 tools/extractor AppDir/usr/bin/tools/extractor
+          wget -qO ff.tar.xz \
+            "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz"
+          tar -xf ff.tar.xz
+          install -m755 ffmpeg-*-linux64-gpl/bin/ffmpeg AppDir/usr/bin/tools/ffmpeg
+
+      - name: Fetch linuxdeploy + Qt plugin
+        run: |
+          wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+          wget -q https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+          chmod +x linuxdeploy-x86_64.AppImage linuxdeploy-plugin-qt-x86_64.AppImage
+
+      - name: Drop unused Mimer SQL plugin
+        run: rm -f "$QT_ROOT_DIR/plugins/sqldrivers/libqsqlmimer.so"
+
+      - name: Build AppImage
+        env:
+          QML_SOURCES_PATHS: ${{ github.workspace }}/qml
+          OUTPUT: Prime_Download_Manager-x86_64.AppImage
+          EXTRA_PLATFORM_PLUGINS: libqoffscreen.so   # needed by the headless smoke test
+        run: |
+          export QMAKE="$QT_ROOT_DIR/bin/qmake6"
+          export PATH="$QT_ROOT_DIR/bin:$PATH"
+          ./linuxdeploy-x86_64.AppImage --appdir AppDir --plugin qt --output appimage
+          ls -lh Prime_Download_Manager-x86_64.AppImage
+
+      - name: Smoke test (headless, bundled Qt only)
+        run: |
+          unset QT_PLUGIN_PATH QML2_IMPORT_PATH QT_ROOT_DIR QMAKE
+          export LD_LIBRARY_PATH=""
+          export QT_QPA_PLATFORM=offscreen
+          export HOME="$PWD/smoke-home"; mkdir -p "$HOME"
+          ./Prime_Download_Manager-x86_64.AppImage > app.log 2>&1 &
+          PID=$!
+          sleep 12
+          ALIVE=0; kill -0 "$PID" 2>/dev/null && ALIVE=1
+          kill "$PID" 2>/dev/null || true; wait "$PID" 2>/dev/null || true
+          echo "----- app.log -----"; cat app.log || true; echo "-------------------"
+          if [ "$ALIVE" -ne 1 ]; then echo "SMOKE FAIL: app exited during startup"; exit 1; fi
+          if grep -qiE 'module .* is not installed|QQmlApplicationEngine failed|error while loading shared libraries|cannot load library' app.log; then
+            echo "SMOKE FAIL: QML module / shared-library error"; exit 1
+          fi
+          echo "SMOKE OK: launched and stayed alive with no QML/lib error"
+
+      - name: Attach AppImage to the release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.release_tag }}
+          prerelease: ${{ github.event.inputs.prerelease }}
+          make_latest: ${{ github.event.inputs.make_latest }}
+          fail_on_unmatched_files: true
+          files: |
+            Prime_Download_Manager-x86_64.AppImage
