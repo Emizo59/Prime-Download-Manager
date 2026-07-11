@@ -218,8 +218,11 @@ jobs:
   # publish it. If this job fails the Windows installer is unaffected (already published).
   linux-appimage:
     needs: windows-installer
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # Build on the OLDEST hosted Ubuntu (22.04, glibc 2.35) so the AppImage runs on older
+    # distros too — a 24.04 build hard-requires glibc 2.39 and won't launch on Ubuntu 22.04 /
+    # Debian 12 / Mint 21. glibc can't be bundled, so the build host sets the floor.
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
     env:
       APPIMAGE_EXTRACT_AND_RUN: "1"   # runners have no FUSE; run nested AppImages by extracting
     steps:
@@ -234,10 +237,21 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            build-essential cmake ninja-build pkg-config file wget xz-utils \
+            build-essential cmake ninja-build pkg-config file wget xz-utils git \
             python3 python3-pip python3-venv \
-            libcurl4-openssl-dev libtorrent-rasterbar-dev libssl-dev \
+            libcurl4-openssl-dev libssl-dev libboost-dev libboost-system-dev \
             libgl1-mesa-dev libxkbcommon0 libxcb-cursor0 libfuse2
+
+      # 22.04's apt libtorrent is 1.2 (no info_hash_t/info_hashes). Build 2.0 from source
+      # with deprecated-functions ON so the ABI-1 members the app links stay available.
+      - name: Build libtorrent 2.0 from source (ABI 1)
+        run: |
+          git clone --recurse-submodules --depth 1 --branch v2.0.10 \
+            https://github.com/arvidn/libtorrent
+          cmake -S libtorrent -B lt-build -G Ninja -DCMAKE_BUILD_TYPE=Release \
+            -Ddeprecated-functions=ON -DCMAKE_INSTALL_PREFIX=/usr
+          cmake --build lt-build
+          sudo cmake --install lt-build
 
       - name: Install Qt 6.7.3 (linux gcc_64)
         uses: jurplel/install-qt-action@v4
