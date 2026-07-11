@@ -1,0 +1,120 @@
+name: Cross-platform CI check (temporary)
+
+# TEMPORARY validation build for all three platforms, run on this PUBLIC repo (free
+# unlimited Actions minutes). The source is cloned from the PRIVATE repo into the runner
+# only, via the SOURCE_REPO_TOKEN PAT — never published here. Delete this workflow and its
+# runs after collecting results.
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: 'Branch/tag in the private source to build'
+        required: true
+        default: 'harden/linux-ci'
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout private source
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.SOURCE_REPO_NAME }}
+          ref: ${{ github.event.inputs.source_ref }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN }}
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential cmake ninja-build pkg-config \
+            qt6-base-dev qt6-declarative-dev qt6-declarative-dev-tools \
+            libqt6sql6-sqlite \
+            libcurl4-openssl-dev libtorrent-rasterbar-dev libssl-dev \
+            python3
+      - name: Configure
+        run: cmake -B build -G Ninja -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build --parallel
+      - name: Run tests
+        run: QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure
+
+  macos:
+    runs-on: macos-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout private source
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.SOURCE_REPO_NAME }}
+          ref: ${{ github.event.inputs.source_ref }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN }}
+      - name: Install dependencies
+        run: |
+          brew update
+          brew install qt@6 libtorrent-rasterbar ffmpeg pkg-config
+      - name: Configure
+        run: |
+          cmake -B build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_PREFIX_PATH="$(brew --prefix qt@6)"
+      - name: Build
+        run: cmake --build build --parallel
+      - name: Run tests
+        run: QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure
+
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout private source
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.SOURCE_REPO_NAME }}
+          ref: ${{ github.event.inputs.source_ref }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN }}
+      - name: Install Qt 6.9.3 (win64_mingw) + MinGW 13.1.0 + Ninja
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.9.3'
+          host: windows
+          target: desktop
+          arch: win64_mingw
+          tools: 'tools_mingw1310 tools_ninja'
+      - name: Fetch prebuilt libtorrent + boost (from private ci-deps-win)
+        env:
+          GH_TOKEN: ${{ secrets.SOURCE_REPO_TOKEN }}
+        run: |
+          New-Item -ItemType Directory -Force -Path thirdparty | Out-Null
+          gh release download ci-deps-win --repo ${{ secrets.SOURCE_REPO_NAME }} -p thirdparty-mingw64.tar.gz --output dep.tgz
+          tar -xzf dep.tgz -C thirdparty
+          if (-not (Test-Path "thirdparty\mingw64\lib\libtorrent-rasterbar.dll.a")) { throw "libtorrent staging failed" }
+      - name: Fetch curl (win64 mingw dev headers + import lib)
+        run: |
+          Invoke-WebRequest -Uri "https://curl.se/windows/latest.cgi?p=win64-mingw.zip" -OutFile curl.zip
+          Expand-Archive curl.zip -DestinationPath curl_dl -Force
+          $dir = (Get-ChildItem curl_dl -Directory | Select-Object -First 1).FullName
+          if (-not (Test-Path "$dir\include\curl\curl.h")) { throw "curl headers not found" }
+          "CURL_DIR=$dir" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Configure
+        run: |
+          $mingw = ("$env:IQTA_TOOLS\mingw1310_64\bin" -replace '\\','/')
+          $qt = ($env:QT_ROOT_DIR -replace '\\','/')
+          $curl = ($env:CURL_DIR -replace '\\','/')
+          $py = if ($env:pythonLocation) { Join-Path $env:pythonLocation 'python.exe' } else { (Get-ChildItem 'C:\hostedtoolcache\windows\Python\3.*\x64\python.exe' | Select-Object -Last 1).FullName }
+          $py = ($py -replace '\\','/')
+          $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:IQTA_TOOLS\Ninja;$env:QT_ROOT_DIR\bin;$env:PATH"
+          cmake -B build -G Ninja -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release `
+            -DCMAKE_C_COMPILER="$mingw/gcc.exe" -DCMAKE_CXX_COMPILER="$mingw/g++.exe" `
+            -DCMAKE_PREFIX_PATH="$qt;$curl" -DDM_PYTHON3="$py"
+      - name: Build
+        run: |
+          $env:PATH = "$env:IQTA_TOOLS\mingw1310_64\bin;$env:IQTA_TOOLS\Ninja;$env:QT_ROOT_DIR\bin;$env:PATH"
+          cmake --build build --parallel
+      - name: Run tests
+        run: |
+          $env:PATH = "$PWD\thirdparty\mingw64\bin;$env:CURL_DIR\bin;$env:QT_ROOT_DIR\bin;$env:IQTA_TOOLS\mingw1310_64\bin;$env:PATH"
+          $env:QT_QPA_PLATFORM = "offscreen"
+          ctest --test-dir build --output-on-failure
