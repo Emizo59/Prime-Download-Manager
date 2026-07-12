@@ -4,7 +4,7 @@
 
 # Prime Download Manager <sup>(PDM)</sup>
 
-### The fast, modern download manager for Windows & macOS
+### The fast, modern download manager for Windows, macOS & Linux
 
 Multi-connection acceleration · Video & playlist downloads · Video clipping · Torrents · Browser integration · Stunning Glass & Classic themes
 
@@ -12,7 +12,9 @@ Multi-connection acceleration · Video & playlist downloads · Video clipping ·
 &nbsp;
 [![Download macOS](https://img.shields.io/badge/⬇_Download-macOS-000000?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_macOS.dmg)
 &nbsp;
-[![Version](https://img.shields.io/badge/version-1.2.1-22c55e?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest)
+[![Download Linux](https://img.shields.io/badge/⬇_Download-Linux_AppImage-f59e0b?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager-x86_64.AppImage)
+&nbsp;
+[![Version](https://img.shields.io/badge/version-1.3.0-22c55e?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest)
 
 <br/>
 
@@ -42,12 +44,12 @@ Multi-connection acceleration · Video & playlist downloads · Video clipping ·
 |---|---|
 | ⚡ **Accelerated downloads** | A multi-connection engine downloads each file in parallel segments for the fastest possible speed — with pause, resume, and automatic reconnect. |
 | 🎬 **Video & playlists** | Download videos and entire playlists from thousands of sites, pick the quality you want, and PDM merges audio + video automatically. |
-| ✂️ **Clip a video** 🆕 | Paste a link, choose a start and end time, and download **just that segment**. Fast keyframe cutting finishes in seconds — no slow re-encode. |
+| ✂️ **Clip a video** 🆕 | Paste a link, choose a start and end time, and download **just that segment** — frame-exact cuts with no start stutter or silent lead-in. Or export **audio-only as MP3**. |
+| 🐧 **Now on Linux** 🆕 | A self-contained **AppImage** brings every feature to Linux — accelerated downloads, video & playlists, clipping and torrents. `chmod +x` and run. |
 | 🧲 **Torrents & smart queue** 🆕 | Built-in torrent and magnet support with a queue that limits how many run at once — managed right alongside your other downloads. |
-| 🌐 **Browser integration** | One-click capture from **Chrome, Edge, Brave, and Opera**. PDM quietly takes over downloads the moment you start them — and launches itself even when it's fully closed. |
+| 🌐 **Browser integration** | One-click capture from **Chrome, Edge, Brave, Opera, and Firefox**. PDM quietly takes over downloads the moment you start them — and launches itself even when it's fully closed. |
 | 🗂️ **Queues & scheduling** | Group downloads into queues, **auto-start and auto-stop on a schedule**, set retry limits, and choose what happens when a queue finishes. |
 | 🎨 **Glass & Classic themes** | Switch between a frosted **Glass** look and a crisp **Classic** look — each in **Light** and **Dark**, with multiple color presets. |
-| 🔁 **Smart duplicate detection** | PDM notices when you've already downloaded a file and lets you re-download, open it, or skip. |
 | 🔒 **Private by design** | Any credentials are encrypted on your own device. Nothing is ever sent to third parties. |
 
 ---
@@ -93,26 +95,43 @@ Multi-connection acceleration · Video & playlist downloads · Video clipping ·
 2. Open it and drag **Prime Download Manager** into **Applications**.
 3. First launch only: right-click the app → **Open** → **Open** (or **System Settings → Privacy & Security → Open Anyway**). The bundled `READ ME FIRST` explains this in Arabic & English.
 
-> **System requirements:** Windows 10 / 11 (64-bit) · macOS 12+ (Apple Silicon & Intel).
+**Linux**
+1. **[Download the AppImage](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager-x86_64.AppImage)** (`Prime_Download_Manager-x86_64.AppImage`).
+2. Make it executable — `chmod +x Prime_Download_Manager-x86_64.AppImage` — then double-click or run it. On first launch PDM adds itself to your applications menu; no installation needed.
+
+> **System requirements:** Windows 10 / 11 (64-bit) · macOS 12+ (Apple Silicon & Intel) · Linux x86-64 (glibc 2.35+, e.g. Ubuntu 22.04 and newer).
 
 ---
 
-## 🆕 What's new in 1.2
+## 🆕 What's new in 1.3
 
-- 🍎 **macOS support** — Prime Download Manager now ships for **macOS** (Apple Silicon & Intel) alongside Windows.
-- ✂️ **Clip a video** — cut any section of a video by start/end time. Rebuilt to use **fast keyframe stream-copy**, so a clip finishes in seconds instead of a long re-encode.
-- 🧲 **Torrent queue** — limit how many torrents run at once and queue the rest.
-- ⏱️ **Auto-stop schedule** — pause your downloads automatically at a set time (alongside auto-start).
-- 🚀 **Closed-app auto-launch** — starting a download from the browser now opens PDM even when it's completely closed.
-- 🪟 **Window polish** — rounded corners, a fixed comfortable window size, and cleaner edges.
-- 🆕 **"What's New" badges** — new features are highlighted in-app so you never miss them.
-- 🛡️ **Security & extension hardening** — the browser extension no longer hijacks ordinary in-tab navigation and dropped a broad permission; the extractor and native-messaging paths were hardened.
+### Platforms & extensions
+- 🐧 **Full Linux support** — a self-contained **AppImage** with every feature (accelerated downloads, video & playlists, clipping, torrents). The app shows its icon in the dock/taskbar, self-installs into the applications menu, supports **run at startup**, and runs on distros back to **glibc 2.35** (Ubuntu 22.04+).
+- 🦊 **Firefox extension** — now official on **[Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/prime-download-manager-pdm/)**. The website, the in-app **About** window, and the "extension not installed" prompt now offer **both Chrome and Firefox**.
 
-### 🐞 Recently fixed
-- **Clip was extremely slow** — it re-encoded the whole segment; now it stream-copies and finishes in seconds.
-- **App wouldn't open on a download when fully closed** — fixed the native-messaging launch path (manifest path + stale-registration handling).
-- Hardened the video extractor against argument/URL edge cases.
-- Continued **Windows SAC / Defender** install-friendliness work (no-elevation manifest, stable version identity).
+### Clip
+- 🎵 **MP3 (audio-only) export** — a new option in the Clip quality row grabs just the audio.
+- **Frame-exact cuts** with **no start stutter and no silent lead-in**, while staying fast.
+- Cleaner cancel (leftover file removed) and a clear **Converting** phase.
+
+### Add Download & filenames
+- 🪟 **Multiple Add-Download windows** — open several at once; a multi-line paste is auto-detected and added as a **batch**.
+- 🔒 **Isolated file extension** — the filename field now separates an **editable base name** from a **locked, read-only extension**, so you can rename freely without ever breaking the extension.
+- Filename now always renders immediately on open (fixed a case where it looked blank until clicked, on macOS).
+
+### Interface
+- Reworked **Queue Manager**, **Torrents**, and **Home** screens — cleaner layouts, smoother interactions, consistent Glass/Classic theming.
+- Simplified the add flow by removing the old duplicate-prompt dialogs (unique names are still assigned automatically).
+
+### 🐞 Fixes & reliability
+- **Faster 4K / VP9 / AV1 merges** — GPU-accelerated, and stream-copied into MP4 where possible (no re-encode).
+- **YouTube** — fixed empty video filenames and mitigated the "Sign in to confirm you're not a bot" prompt.
+- Fixed **first-seconds-silent audio** in Windows clips.
+
+### 🛡️ Security & hardening
+- **Windows SAC / Defender** — libtorrent **and** OpenSSL are statically linked into the signed executable (no unsigned crypto DLL), and the download backend runs through a **PSF-signed Python** interpreter.
+- The auto-update manifest is **RSA-signed and verified**, with a **SHA-256 integrity check** on every downloaded update.
+- Path-traversal hardening, resolved **13 internal audit findings**, and removed dead code.
 
 See all releases on the **[Releases page](https://github.com/Emizo59/Prime-Download-Manager/releases)**.
 
@@ -124,10 +143,10 @@ See all releases on the **[Releases page](https://github.com/Emizo59/Prime-Downl
 Yes — download and use it for free.
 
 **Which browsers are supported?**
-Chrome, Edge, Brave, and Opera via the official browser integration.
+Chrome, Edge, Brave, and Opera via the official [Chrome extension](https://chromewebstore.google.com/detail/prime-download-manager-in/dknpckalhpibdlljaaejomedcikemoej), and **Firefox** via the official [Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/prime-download-manager-pdm/).
 
-**Does it work on macOS?**
-Yes! PDM now has a native **macOS** build (Apple Silicon & Intel), right next to the Windows version. Grab the `.dmg` from the [Releases page](https://github.com/Emizo59/Prime-Download-Manager/releases/latest).
+**Does it work on macOS and Linux?**
+Yes — PDM ships native builds for **macOS** (Apple Silicon & Intel) and **Linux** (self-contained AppImage), right next to the Windows version. Grab the `.dmg` or `.AppImage` from the [Releases page](https://github.com/Emizo59/Prime-Download-Manager/releases/latest).
 
 **Where are my files saved?**
 Wherever you choose — set a default download folder in **Settings**, or pick a path per download.
@@ -138,7 +157,7 @@ Wherever you choose — set a default download folder in **Settings**, or pick a
 
 ### Developed By **Dr. Moataz**
 
-[![Build](https://img.shields.io/badge/build-2026070319-2563eb?style=flat-square)](https://github.com/Emizo59/Prime-Download-Manager/releases) &nbsp; [![Privacy Policy](https://img.shields.io/badge/privacy--policy-10b981?style=flat-square)](https://emizo59.github.io/download-manager/privacy-policy)
+[![Build](https://img.shields.io/badge/build-2026071203-2563eb?style=flat-square)](https://github.com/Emizo59/Prime-Download-Manager/releases) &nbsp; [![Privacy Policy](https://img.shields.io/badge/privacy--policy-10b981?style=flat-square)](https://emizo59.github.io/download-manager/privacy-policy)
 
 © 2026 Prime Download Manager (PDM). All rights reserved.
 

@@ -3,21 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Prime Download Manager (PDM) — Fast, modern download manager for Windows &amp; macOS</title>
+<title>Prime Download Manager (PDM) — Fast, modern download manager for Windows, macOS &amp; Linux</title>
 <meta name="description" content="Prime Download Manager (PDM): multi-connection acceleration, video & playlist downloads, torrents, browser integration, and beautiful Glass & Classic themes." />
 <link rel="icon" href="assets/logo.png" />
 <meta property="og:title" content="Prime Download Manager (PDM)" />
-<meta property="og:description" content="The fast, modern download manager for Windows." />
+<meta property="og:description" content="The fast, modern download manager for Windows, macOS &amp; Linux." />
 <meta property="og:image" content="assets/screenshots/home-glass-dark.png" />
 <style>
   :root{
     --blue:#2563eb; --blue2:#1d4ed8; --ink:#0b1020; --muted:#5b6478;
     --bg:#ffffff; --card:#f6f8fd; --border:#e6eaf2; --green:#22c55e;
     --chrome-text:#2563eb; --chrome-border:#3b82f6; --chrome-hover:rgba(37,99,235,0.06);
+    --ff-text:#d64500; --ff-border:#ff7139; --ff-hover:rgba(214,69,0,0.06);
   }
   @media (prefers-color-scheme: dark){
     :root{ --ink:#eef2ff; --muted:#9aa6c2; --bg:#0a0d18; --card:#121830; --border:#1f2746;
-           --chrome-text:#60a5fa; --chrome-border:#3b82f6; --chrome-hover:rgba(96,165,250,0.1); }
+           --chrome-text:#60a5fa; --chrome-border:#3b82f6; --chrome-hover:rgba(96,165,250,0.1);
+           --ff-text:#ff9d5c; --ff-border:#ff7139; --ff-hover:rgba(255,157,92,0.1); }
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -36,13 +38,26 @@
   .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
   .btn.chrome-btn{background:transparent;color:var(--chrome-text);border:1px solid var(--chrome-border)}
   .btn.chrome-btn:hover{background:var(--chrome-hover);color:var(--chrome-text);border-color:var(--chrome-text)}
+  .btn.firefox-btn{background:transparent;color:var(--ff-text);border:1px solid var(--ff-border)}
+  .btn.firefox-btn:hover{background:var(--ff-hover);color:var(--ff-text);border-color:var(--ff-text)}
   /* hero */
   .hero{text-align:center;padding:60px 0 30px}
   .hero h1{font-size:clamp(34px,6vw,60px);line-height:1.05;margin:14px 0 10px;letter-spacing:-1px}
   .hero h1 .grad{background:linear-gradient(90deg,#3b82f6,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero p.lead{font-size:clamp(16px,2.4vw,21px);color:var(--muted);max-width:640px;margin:0 auto 26px}
-  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+  /* Make the primary Download the hero action; everything else stays secondary. */
+  .btn.btn-lg{font-size:17px;padding:16px 34px;border-radius:14px;box-shadow:0 16px 34px -16px var(--blue)}
+  .btn.btn-lg:hover{box-shadow:0 22px 46px -16px var(--blue)}
   .meta{color:var(--muted);font-size:13px;margin-top:8px}
+  /* Extensions grouped into one tidy centered pill so they read as a single, deliberate
+     secondary element rather than loose buttons floating beside the primary CTA. */
+  .ext-wrap{text-align:center;margin-top:24px}
+  .ext-card{display:inline-flex;align-items:center;gap:8px;padding:7px 8px 7px 16px;
+    border:1px solid var(--border);border-radius:999px;background:var(--card)}
+  .ext-card .lbl{color:var(--muted);font-size:13px;font-weight:600;margin-right:2px}
+  .ext-card .btn{padding:8px 15px;font-size:13px;border-radius:999px}
+  @media(max-width:520px){.ext-card{flex-wrap:wrap;justify-content:center;border-radius:18px;padding:12px}}
   .shot{margin:40px auto 0;max-width:880px}
   .shot img{width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:0 30px 80px -30px rgba(37,99,235,.45)}
   /* sections */
@@ -190,7 +205,7 @@
   </nav>
 
   <header class="hero">
-    <span class="pill" id="verPill">Version 1.2.3 · Windows 10/11 &amp; macOS</span>
+    <span class="pill" id="verPill">Version 1.3.0 · Windows · macOS · Linux</span>
     
     <div class="sac-alert" id="winNotice">
       <div style="font-size: 24px; line-height: 1;">⚠️</div>
@@ -221,11 +236,17 @@
     <h1>Download <span class="grad">everything</span>,<br/>faster.</h1>
     <p class="lead">Prime Download Manager accelerates every download with multiple connections, captures files from your browser, grabs videos &amp; playlists, handles torrents — all in a beautiful Glass or Classic interface.</p>
     <div class="cta">
-      <a class="btn js-dl" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe"><svg class="dl-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path class="shaft" d="M12 3v12"/><path d="M6.5 11.5 12 17l5.5-5.5"/><path d="M5 21h14"/></svg>Download for Windows</a>
-      <a class="btn chrome-btn" href="https://chromewebstore.google.com/detail/prime-download-manager-in/dknpckalhpibdlljaaejomedcikemoej?authuser=0&hl=en" target="_blank">🧩 Chrome Extension</a>
+      <a class="btn btn-lg js-dl" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe"><svg class="dl-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path class="shaft" d="M12 3v12"/><path d="M6.5 11.5 12 17l5.5-5.5"/><path d="M5 21h14"/></svg>Download for Windows</a>
       <a class="btn ghost" href="#features">See features</a>
     </div>
-    <div class="meta" id="dlMeta">Free · Windows 64-bit · ~82&nbsp;MB &nbsp;·&nbsp; Also on <a href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_macOS.dmg" style="color:var(--muted);font-weight:600">macOS</a></div>
+    <div class="meta" id="dlMeta">Free · Windows 64-bit · ~82&nbsp;MB &nbsp;·&nbsp; Also on <a href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_macOS.dmg" style="color:var(--muted);font-weight:600">macOS</a> &amp; <a href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager-x86_64.AppImage" style="color:var(--muted);font-weight:600">Linux</a></div>
+    <div class="ext-wrap">
+      <span class="ext-card">
+        <span class="lbl">Browser extension</span>
+        <a class="btn chrome-btn" href="https://chromewebstore.google.com/detail/prime-download-manager-in/dknpckalhpibdlljaaejomedcikemoej?authuser=0&hl=en" target="_blank">🧩 Chrome</a>
+        <a class="btn firefox-btn" href="https://addons.mozilla.org/en-US/firefox/addon/prime-download-manager-pdm/" target="_blank">🦊 Firefox</a>
+      </span>
+    </div>
     <div class="shot"><img src="assets/screenshots/home-glass-dark.png" alt="Prime Download Manager home" /></div>
 
     <div class="stats reveal">
@@ -271,12 +292,12 @@
     <div class="grid">
       <div class="feature"><div class="ic">⚡</div><h3>Accelerated downloads</h3><p>A multi-connection engine splits each file into parallel segments for maximum speed — with pause, resume, and auto-reconnect.</p></div>
       <div class="feature"><div class="ic">🎬</div><h3>Video &amp; playlists</h3><p>Download videos and whole playlists from thousands of sites, choose the quality, and PDM merges audio + video automatically.</p></div>
-      <div class="feature"><div class="ic">✂️</div><h3>Clip a video <span style="background:#22c55e;color:#fff;font-size:11px;font-weight:800;padding:2px 8px;border-radius:8px;vertical-align:middle;margin-left:4px">NEW</span></h3><p>Paste a link, pick a start and end time, and download just that segment. Fast keyframe cutting finishes in seconds — no slow full re-encode.</p></div>
+      <div class="feature"><div class="ic">✂️</div><h3>Clip a video <span style="background:#22c55e;color:#fff;font-size:11px;font-weight:800;padding:2px 8px;border-radius:8px;vertical-align:middle;margin-left:4px">NEW</span></h3><p>Paste a link, pick a start and end time, and download just that segment — with frame-exact cuts, no start stutter, and no silent lead-in. Or grab just the audio as <strong>MP3</strong>.</p></div>
       <div class="feature"><div class="ic">🧲</div><h3>Torrents &amp; queue <span style="background:#22c55e;color:#fff;font-size:11px;font-weight:800;padding:2px 8px;border-radius:8px;vertical-align:middle;margin-left:4px">NEW</span></h3><p>Built-in torrent and magnet support with a smart queue that limits how many run at once — managed right next to your other downloads.</p></div>
-      <div class="feature"><div class="ic">🌐</div><h3>Browser integration</h3><p>One-click capture from Chrome, Edge, Brave, and Opera the moment a download starts.<br/><a href="https://chromewebstore.google.com/detail/prime-download-manager-in/dknpckalhpibdlljaaejomedcikemoej?authuser=0&hl=en" target="_blank" style="color:var(--chrome-text);font-weight:600;display:inline-block;margin-top:8px;text-decoration:none">🧩 Add Chrome Extension &rarr;</a></p></div>
+      <div class="feature"><div class="ic">🌐</div><h3>Browser integration</h3><p>One-click capture from Chrome, Edge, Brave, Opera and Firefox the moment a download starts.<br/><a href="https://chromewebstore.google.com/detail/prime-download-manager-in/dknpckalhpibdlljaaejomedcikemoej?authuser=0&hl=en" target="_blank" style="color:var(--chrome-text);font-weight:600;display:inline-block;margin-top:8px;text-decoration:none">🧩 Add Chrome Extension &rarr;</a><br/><a href="https://addons.mozilla.org/en-US/firefox/addon/prime-download-manager-pdm/" target="_blank" style="color:var(--ff-text);font-weight:600;display:inline-block;margin-top:6px;text-decoration:none">🦊 Add Firefox Extension &rarr;</a></p></div>
       <div class="feature"><div class="ic">🗂️</div><h3>Queues &amp; scheduling</h3><p>Group downloads into queues, schedule start/stop times, set retries, and choose post-completion actions.</p></div>
       <div class="feature"><div class="ic">🎨</div><h3>Glass &amp; Classic themes</h3><p>Frosted Glass or crisp Classic — each in Light &amp; Dark, with multiple color presets.</p></div>
-      <div class="feature"><div class="ic">🔁</div><h3>Duplicate detection</h3><p>PDM spots files you already downloaded and lets you re-download, open, or skip.</p></div>
+      <div class="feature"><div class="ic">🐧</div><h3>Now on Linux <span style="background:#22c55e;color:#fff;font-size:11px;font-weight:800;padding:2px 8px;border-radius:8px;vertical-align:middle;margin-left:4px">NEW</span></h3><p>A self-contained <strong>AppImage</strong> brings every feature — accelerated downloads, video &amp; playlists, clipping and torrents — to Linux. Just <code>chmod +x</code> and run.</p></div>
       <div class="feature"><div class="ic">🔒</div><h3>Private by design</h3><p>Credentials are encrypted on your own device. Nothing is sent to third parties.</p></div>
     </div>
   </section>
@@ -299,8 +320,8 @@
   <section>
     <div class="band">
       <h2>Ready to download faster?</h2>
-      <p class="sub" id="ctaSub">Get Prime Download Manager for Windows &amp; macOS — free.</p>
-      <a class="btn js-dl" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe"><svg class="dl-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path class="shaft" d="M12 3v12"/><path d="M6.5 11.5 12 17l5.5-5.5"/><path d="M5 21h14"/></svg>Download PDM 1.2.3 Official Release</a>
+      <p class="sub" id="ctaSub">Get Prime Download Manager for Windows, macOS &amp; Linux — free.</p>
+      <a class="btn js-dl" href="https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe"><svg class="dl-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path class="shaft" d="M12 3v12"/><path d="M6.5 11.5 12 17l5.5-5.5"/><path d="M5 21h14"/></svg>Download PDM 1.3.0 Official Release</a>
     </div>
   </section>
 
@@ -519,27 +540,46 @@
      buttons to the .dmg and relabel. Both platforms stay reachable via the "Also on"
      link in the hero. */
   (function(){
-    var isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform || "") ||
-                (/Mac OS X/.test(navigator.userAgent || "") && !/like Mac OS/.test(navigator.userAgent || ""));
-    if (!isMac) return;
+    var ua = navigator.userAgent || "", plat = navigator.platform || "";
+    var isMac   = /Mac|iPhone|iPad|iPod/.test(plat) || (/Mac OS X/.test(ua) && !/like Mac OS/.test(ua));
+    var isLinux = !isMac && !/Android/.test(ua) && (/Linux|X11/.test(plat) || /Linux/.test(ua));
+    if (!isMac && !isLinux) return;   // Windows / unknown -> keep the HTML defaults
+
+    var muted = 'style="color:var(--muted);font-weight:600"';
     var WIN = "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe";
     var MAC = "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_macOS.dmg";
-    // Swap the Windows SAC/Defender notice for the macOS "how to open" instructions.
-    var winN = document.getElementById('winNotice'); if (winN) winN.style.display = 'none';
-    var macN = document.getElementById('macNotice'); if (macN) macN.style.display = '';
-    document.querySelectorAll('a.js-dl').forEach(function(a){
-      a.setAttribute('href', MAC);
-      a.childNodes.forEach(function(n){
-        if (n.nodeType === 3 && /Windows/.test(n.textContent))
-          n.textContent = n.textContent.replace('Windows', 'macOS');
-      });
-    });
+    var LIN = "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager-x86_64.AppImage";
+
     var pill = document.getElementById('verPill');
-    if (pill) pill.textContent = 'Version 1.2.3 · macOS 12+';
     var meta = document.getElementById('dlMeta');
-    if (meta) meta.innerHTML = 'Free · macOS (Apple Silicon & Intel) · ~110 MB  ·  Also on <a href="' + WIN + '" style="color:var(--muted);font-weight:600">Windows</a>';
-    var sub = document.getElementById('ctaSub');
-    if (sub) sub.textContent = 'Get Prime Download Manager for macOS & Windows — free.';
+    var sub  = document.getElementById('ctaSub');
+    var winN = document.getElementById('winNotice');
+    var macN = document.getElementById('macNotice');
+
+    function setDownload(url, toWord){
+      document.querySelectorAll('a.js-dl').forEach(function(a){
+        a.setAttribute('href', url);
+        a.childNodes.forEach(function(n){
+          if (n.nodeType === 3 && /Windows/.test(n.textContent))
+            n.textContent = n.textContent.replace('Windows', toWord);
+        });
+      });
+    }
+
+    if (isMac) {
+      if (winN) winN.style.display = 'none';   // swap SAC notice for the macOS "how to open"
+      if (macN) macN.style.display = '';
+      setDownload(MAC, 'macOS');
+      if (pill) pill.textContent = 'Version 1.3.0 · macOS 12+';
+      if (meta) meta.innerHTML = 'Free · macOS (Apple Silicon & Intel) · ~110 MB &nbsp;·&nbsp; Also on <a href="'+WIN+'" '+muted+'>Windows</a> &amp; <a href="'+LIN+'" '+muted+'>Linux</a>';
+      if (sub) sub.textContent = 'Get Prime Download Manager for macOS, Windows & Linux — free.';
+    } else {
+      if (winN) winN.style.display = 'none';   // no SAC/Defender on Linux
+      setDownload(LIN, 'Linux');
+      if (pill) pill.textContent = 'Version 1.3.0 · Linux (AppImage)';
+      if (meta) meta.innerHTML = 'Free · Linux x86-64 AppImage · <code>chmod +x</code> then run &nbsp;·&nbsp; Also on <a href="'+WIN+'" '+muted+'>Windows</a> &amp; <a href="'+MAC+'" '+muted+'>macOS</a>';
+      if (sub) sub.textContent = 'Get Prime Download Manager for Linux, Windows & macOS — free.';
+    }
   })();
 </script>
 </body>
