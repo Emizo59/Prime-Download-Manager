@@ -27,6 +27,10 @@ on:
         description: 'Mark as Latest (promotes over current stable — leave false to keep v1.0.x)'
         type: boolean
         default: false
+      build_linux:
+        description: 'Also build & attach the Linux AppImage (uncheck for a Windows-only run)'
+        type: boolean
+        default: true
 
 permissions:
   contents: write          # create the release + upload the asset on THIS repo
@@ -218,6 +222,7 @@ jobs:
   # publish it. If this job fails the Windows installer is unaffected (already published).
   linux-appimage:
     needs: windows-installer
+    if: ${{ github.event.inputs.build_linux != 'false' }}
     # Build on the OLDEST hosted Ubuntu (22.04, glibc 2.35) so the AppImage runs on older
     # distros too — a 24.04 build hard-requires glibc 2.39 and won't launch on Ubuntu 22.04 /
     # Debian 12 / Mint 21. glibc can't be bundled, so the build host sets the floor.
