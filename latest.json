@@ -1,8 +1,8 @@
 {
-  "build": 2026071203,
-  "version": "1.3.0",
+  "build": 2026071204,
+  "version": "1.3.1",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new in 1.3.0:\n• Full Linux support (AppImage) + official Firefox extension.\n• Clip: new MP3 (audio-only) export; frame-exact cuts, no start stutter.\n• Add Download: multiple windows + batch paste; locked file extension.\n• Reworked Queue, Torrents & Home screens.\n• Faster 4K/VP9/AV1 merges; YouTube & Windows-clip audio fixes.\n• Security & Windows SAC hardening.",
-  "sha256": "300e30b51fbbc14a3848b4a2afa83b18b8d413fc216fb18cd49201f475fbb1ed",
-  "signature": "rHpEwmTUj4lQEK2CCQTWnOnLFBoJnTIVEg0xn9mi0NcJ739W1PCVTl+rBAfB2wAFYJHjiLElLsqRA/FXHT4BnHYugfh27yo67COlx5DDVfEvbXvoVFmyohwbFGpArWSfiL63FTazCttGGkApJioofSnYA81hffDhbVCMjj6A0vKeFJaIJJqKCWx+FS+lqd7OhF7u/LEpVHuIaxO3a4g6CrtkjFJtFAViEMi129x9lk0nexLmwlHMApkcY0Doiz0fXqwhBHY4e2jVQXNzH4L8b2c06JzYOXlMWGkuewLTozLy5OuJxws2oQ/h5bdq+XnYwWaL5tyXKjalg0Je6E7kSA=="
+  "notes": "What's new in 1.3.1:\n• Hotfix & stability improvements.",
+  "sha256": "f92df0a17cb082d105f7f5c39a1d6ab53f89b862407779336adf757912b055b4",
+  "signature": "DVlelhIwZBxzy+DFjBZqHmAU4HkI84cS/8BArduYo2Iea7R62ZRXp2j6p6AnrCYB4K92wrltopJ9IRju++sqGHslr6Alr3wG0YuDL2Ah/z9CRSWmAlccW0LJV7BeBdvgUdB+YvfFax/UGCxbta1QJGhIelXcbVXJ6cKBy0WRC5eKCdXcIwWC8EnKnvwqKRI8T8n28Nw/6DxXn08I8OM3aBMq7siozFGv3i0ctKGQKngKv8fWgZBshFZuYkDfopGQ5y+ZPmd9SnOmFYZ84/5rxQOtLCnbEcC45qlVFiaTVQPdTuyCe/7CBzk/AGZ2y6wJzIrrVpp7V0+WMPkm+as70Q=="
 }
