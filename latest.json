@@ -1,8 +1,8 @@
 {
-  "build": 2026071204,
-  "version": "1.3.1",
+  "build": 2026080501,
+  "version": "1.3.2",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new in 1.3.1:\n• Hotfix & stability improvements.",
-  "sha256": "f92df0a17cb082d105f7f5c39a1d6ab53f89b862407779336adf757912b055b4",
-  "signature": "DVlelhIwZBxzy+DFjBZqHmAU4HkI84cS/8BArduYo2Iea7R62ZRXp2j6p6AnrCYB4K92wrltopJ9IRju++sqGHslr6Alr3wG0YuDL2Ah/z9CRSWmAlccW0LJV7BeBdvgUdB+YvfFax/UGCxbta1QJGhIelXcbVXJ6cKBy0WRC5eKCdXcIwWC8EnKnvwqKRI8T8n28Nw/6DxXn08I8OM3aBMq7siozFGv3i0ctKGQKngKv8fWgZBshFZuYkDfopGQ5y+ZPmd9SnOmFYZ84/5rxQOtLCnbEcC45qlVFiaTVQPdTuyCe/7CBzk/AGZ2y6wJzIrrVpp7V0+WMPkm+as70Q=="
+  "notes": "What's new in 1.3.2:\n• Fixed downloads that could get stuck on \"Reconnecting\" and fail.\n• Faster, full-speed download start on Windows.\n• Stability improvements.",
+  "sha256": "eb2db66a534a2aaaa6312bfccfc428ba1c617ad82267a3a56b421b598210ae51",
+  "signature": "N0hqwzP/ifZuv0AKSRnY/L3IJFygYbjKJLYwC14Lf5O1fUD/zT9WsEeDqZMu+lXTvJDKWydKhuG7geiyC6Y/iMmf62S7QjoSV7DfT0oBYP5eVObyZ3knpyO+TNEl7wW6plegD1wN6kRjoeefxEIKh5vyeLU2xtW0Fl2tigVvnHDGaYfYowN049ot3zq6LvNwdULBVr0rekcwrOOQ/LjBNYQVgNWMg7MGlpyhx4aa6y7h7W+T5IbopKIGvhA0HwTprtfAZfVZBgIloYO1Sd//+ySGOtONN3xrfhKZcKxxkxGERe6L0xBfz5ysvEnp0lSLuHBGzNYjumy8xXBWvXGR2A=="
 }
