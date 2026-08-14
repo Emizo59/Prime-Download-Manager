@@ -1,11 +1,11 @@
 {
-  "build": 2026081402,
+  "build": 2026081501,
   "version": "1.3.2",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n• Fixed YouTube downloads (connection error / \"extraction timed out\").\n• Faster, more reliable video info fetching.\n• Stability improvements.",
+  "notes": "What's new:\n• Fixed the Clip feature on YouTube (\"ffmpeg exited with code 8\").\n• Much faster video info fetching.\n• YouTube download & stability improvements.",
   "sha256": "eb2db66a534a2aaaa6312bfccfc428ba1c617ad82267a3a56b421b598210ae51",
   "signature": "N0hqwzP/ifZuv0AKSRnY/L3IJFygYbjKJLYwC14Lf5O1fUD/zT9WsEeDqZMu+lXTvJDKWydKhuG7geiyC6Y/iMmf62S7QjoSV7DfT0oBYP5eVObyZ3knpyO+TNEl7wW6plegD1wN6kRjoeefxEIKh5vyeLU2xtW0Fl2tigVvnHDGaYfYowN049ot3zq6LvNwdULBVr0rekcwrOOQ/LjBNYQVgNWMg7MGlpyhx4aa6y7h7W+T5IbopKIGvhA0HwTprtfAZfVZBgIloYO1Sd//+ySGOtONN3xrfhKZcKxxkxGERe6L0xBfz5ysvEnp0lSLuHBGzNYjumy8xXBWvXGR2A==",
   "url_mac": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/PrimeDownloadManager.zip",
-  "sha256_mac": "ff588dd2dbbb6881ce2d258b9cb8a9c004baa732a7e6080e9fa409422ad688dd",
-  "signature_mac": "qEPFyulDqvnHs5Di8uSxwOdc5qhMN6dXCNgh95VnHM5n/5PH5XxiE+2RwyUaU4K/W8oh9jWSMQ2TBIC9Hg/I7GpYUHIq3FhnGhlhs1gNWeVDScju6fsoVJRXFyQmmaoDOyT3I7FPM6nXrgsIJVG10cqMqOVjxCXAxEvP0cyM9WpyMIu57FPeHSPSl83ZkxeD97ayHTE8Nz3UNKNlKS4K1t4fyZqmUywrIwNwRWADIuqz3kn7PCQodB8b+XRP11Ut07zzw9gBrsMEtH3+SZPmqewwzEaQv2E7lC6NJzaNmJFcdK+LsCUbrFnfHY/n+k2i04tZYppur4XFJBfYjYFyog=="
+  "sha256_mac": "17fb075cc974c3d1d9c71d54109308fa2bed15ea9e8d4d2c7b26130c08697002",
+  "signature_mac": "lYoO/Y865schvufHhby40VZeLl4/kn+JjlL3t++aM1sHpHf5eEzUhicBkt32PDm4Ep7xoWovH7lwPQHZuisSYO/aSBW5d32loBuvxwai9gboZ1TXk27LozwmTxAuPn3bAmqjcT3O2UUeZu77VhQVhNbp2uvZIYn9mlPtqlEbZGOrrnmPIoHHS1KI0JsyG7KdE2llTDVrB4VWe4/zt7OjVr9Qjln5mYRngLsEeIspBhdNlY+GOYk+kc0pDq57wDZVs0cKP3myPKkJLPvxwOT7bZg+4ufX59yd8wB0FNo6KckKI0g8D6dmYwkedoz80BARIGI8+poC/bzsBZiq2wHRPg=="
 }
