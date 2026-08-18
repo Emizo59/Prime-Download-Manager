@@ -268,7 +268,7 @@ jobs:
 
       - name: Build frozen extractor (PyInstaller) — browser-download /extract path
         run: |
-          python3 -m pip install --user --upgrade pyinstaller yt-dlp
+          python3 -m pip install --user --upgrade pyinstaller yt-dlp yt-dlp-ejs
           python3 -m PyInstaller --clean --noconfirm \
             --distpath tools --workpath build/pyi extractor.spec
           test -f tools/extractor
