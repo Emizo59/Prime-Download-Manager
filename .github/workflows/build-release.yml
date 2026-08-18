@@ -291,6 +291,18 @@ jobs:
           echo "$sha  AppDir/usr/bin/tools/yt-dlp" | sha256sum -c -
           chmod +x AppDir/usr/bin/tools/yt-dlp
           install -m755 tools/extractor AppDir/usr/bin/tools/extractor
+          # deno JS runtime — THE YouTube fix: modern yt-dlp needs a real JS engine to
+          # decipher YouTube signatures and hand back FULL, uncapped download URLs (without
+          # it the only JS-free client, android_vr, returns URLs that 403 past ~24 MB, so
+          # downloads drop quality and fail). extractor.py's find_deno_path() picks it up
+          # from usr/bin/tools/deno. Pinned + SHA-256 verified like yt-dlp. (yt-deno)
+          deno_ver="v2.9.5"
+          deno_sha="8b010a3b1a4a0188a67cdb8a7a27348b2a501af78aec7fc74f2ace167368d530"
+          wget -qO deno.zip \
+            "https://github.com/denoland/deno/releases/download/$deno_ver/deno-x86_64-unknown-linux-gnu.zip"
+          echo "$deno_sha  deno.zip" | sha256sum -c -
+          unzip -o -q deno.zip -d AppDir/usr/bin/tools/
+          chmod +x AppDir/usr/bin/tools/deno
           wget -qO ff.tar.xz \
             "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz"
           tar -xf ff.tar.xz
