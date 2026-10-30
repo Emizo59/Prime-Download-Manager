@@ -1,11 +1,11 @@
 {
-  "build": 2026081801,
-  "version": "1.3.3",
+  "build": 2026103101,
+  "version": "1.3.4",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n• Fixed YouTube downloads that stopped around 24 MB and then failed — high-quality videos now download completely and reliably.\n• New: choose a default download folder — after picking a location, tick \"Always download to this folder\" and every download goes there.\n• Stability improvements.",
-  "sha256": "4c03d4fa2bc0654e40ee4852949bbb86f9e876ea3a45b628827063c5843feb8d",
-  "signature": "SXHCR+AzLHFiG+VuoyyDaKoTsILbrcgh5R1plVLA9XfBU55+OOgBZw+tEplN0NhdGqwt7QyhFS/4lD51b0+0DGeKgdjsXnqAwS4g7SIvg/Gyttv39Q/GgJC6dkTTl5Iqk8ZR7ytx1HfECX5ZGMijiD8W/URYPTydkWStoeZTHW3c85o9yEUUK2bcduBdEUgiZXLuQSwC4iZlDMYNIS+xR3vUXzdfnTga1hHybfi25Uc98tR7W8NOW93A20tx1jxcJy0s/ckl/viA539YKoBhcykRzDZ15IcvzWm3wdogeYP/3IpBOJVWpuZ2uucF4XSEGj7Iyw/PlG5Yzsm8Di8jIw==",
+  "notes": "What's new:\n• Fixed YouTube qualities showing tiny sizes (~800 KB) and downloads not starting\n• Fixed Clip failing with \"ffmpeg exited with code 8\"\n• Playlist videos no longer loop \"Waiting…\" after finishing\n• Security hardening for the browser-extension connection",
+  "sha256": "6abd60dfcec8bde63be8a4d6030d76baac1c4ab2a692f81d08a3fd3f33c82f32",
+  "signature": "qcXuIhDOICOnPLRsGJnDGfLqLpWGSqtlrKCID1kQ3PeE03YLDh8ctf5w75yTQusKAAsYXiaGpSXBMO+LSQbT4EVCtzLadsc+IImDi5ixWAalHlHbv1Rx9aOHsGVgiMy09GZEUL0zhMZxRQohX1TxwPaHbvgkiQVf/d49T8w3VjThn6hRRkgCqyrpJbPva4Q0gA1A8gQ9C0zDc2Jyk/zPLshcXLbLQosmk5jdXjttiNW1BeIisSaqxjbD8D/4lcGSZ4uPdypkcvGl6JSAgVGkxCN3x3WBpXCn9Ugpq5gtyYB+HEAAVIW1cou/lvHtWabvwwPsYDAx7RaNkTTneLzhqg==",
   "url_mac": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/PrimeDownloadManager.zip",
-  "sha256_mac": "230c355b9f05734e88e46b4ef1c974349c38a4afdbd112a4ee40435da3da1f11",
-  "signature_mac": "DCS8se6Q2Et7lR0HnPcieZX6QL+z+QJMLYodpVEO2/yQzQU87PvBYXwggJJENN8o6572CXPaoXEq9YX9vaPECeH8QADy5zXCXYb0SyRavNvhNHb1uG+tFtoljo7ZZ11VyDlwkkNOddLsWtY6RfqdLFxV7PhsM8ig3nLFoJG0/b8ZFbgzSiB/s5/tjWtvvlHZViThFoOc19ITbEb4n206XBJ9QY7xTPoaQBbWTWY117wMxDfmh1FHLuc1Fwf/5hMUYpEgTScGUzsCMbpM4U9jwuRXPtDZ9+ZxsSVtgb35XuHvb5wEqxKcAzaqhHlUUc0Z3+Rs1NOBczGiC5YVnK7C0g=="
+  "sha256_mac": "fb103703ff9331e6a3dd91edb77db14000110ffc53b667311ddd1f028814075b",
+  "signature_mac": "NWS9LDcMYZS720AVdWCZY/yhTJB6dSg4vrFlGlZG0k/YFvEDxlnYgqy4Tegy+lmqO41ZKKJlmH92hxt24t9Qgsd4877eyApZ9RvWHoxhou7XMV9mqIsMlqq3v2oxUNEiEtoJoGgJnbo4/Yjn1cexiGWrV9qSY6xwgXlLkH969h6BDmWFxogczHRpp7gGQQyZQCU5CTkdGYiFOJwtofg6v+MIn1dl3UlL/TYffFImF6ubXWMOTZeADqvzsn7sj6ca6UFyekC3LOqKbGMNu2SXJE+RUE7HSNGAl1KQL+D3E6tEailB2F9iZbb67G5YPj30jncBTGGVaJI2YUdRdW217g=="
 }
