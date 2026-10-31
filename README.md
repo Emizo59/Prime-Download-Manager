@@ -10,7 +10,7 @@ Multi-connection acceleration · Video & playlist downloads · Video clipping ·
 
 [![Download Windows](https://img.shields.io/badge/⬇_Download-Windows_10%2F11-2563eb?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)
 &nbsp;
-[![Download macOS](https://img.shields.io/badge/⬇_Download-macOS-000000?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_macOS.dmg)
+[![Download macOS](https://img.shields.io/badge/⬇_Download-macOS-000000?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/PrimeDownloadManager.zip)
 &nbsp;
 [![Download Linux](https://img.shields.io/badge/⬇_Download-Linux_AppImage-f59e0b?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager-x86_64.AppImage)
 &nbsp;
@@ -91,15 +91,15 @@ Multi-connection acceleration · Video & playlist downloads · Video clipping ·
 4. Start downloading — PDM takes it from there. 🎉
 
 **macOS**
-1. **[Download the disk image](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_macOS.dmg)** (`Prime_Download_Manager_macOS.dmg`).
-2. Open it and drag **Prime Download Manager** into **Applications**.
-3. First launch only: right-click the app → **Open** → **Open** (or **System Settings → Privacy & Security → Open Anyway**). The bundled `READ ME FIRST` explains this in Arabic & English.
+1. **[Download the app](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/PrimeDownloadManager.zip)** (`PrimeDownloadManager.zip` — Safari unzips it for you).
+2. Drag **Prime Download Manager** into **Applications**.
+3. First launch: macOS asks whether to open an app downloaded from the internet — click **Open**. The app is signed and notarized by Apple.
 
 **Linux**
 1. **[Download the AppImage](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager-x86_64.AppImage)** (`Prime_Download_Manager-x86_64.AppImage`).
 2. Make it executable — `chmod +x Prime_Download_Manager-x86_64.AppImage` — then double-click or run it. On first launch PDM adds itself to your applications menu; no installation needed.
 
-> **System requirements:** Windows 10 / 11 (64-bit) · macOS 12+ (Apple Silicon & Intel) · Linux x86-64 (glibc 2.35+, e.g. Ubuntu 22.04 and newer).
+> **System requirements:** Windows 10 / 11 (64-bit) · macOS 26+ (Apple silicon) · Linux x86-64 (glibc 2.35+, e.g. Ubuntu 22.04 and newer).
 
 ---
 
@@ -146,7 +146,7 @@ Yes — download and use it for free.
 Chrome, Edge, Brave, and Opera via the official [Chrome extension](https://chromewebstore.google.com/detail/prime-download-manager-in/dknpckalhpibdlljaaejomedcikemoej), and **Firefox** via the official [Firefox add-on](https://addons.mozilla.org/en-US/firefox/addon/prime-download-manager-pdm/).
 
 **Does it work on macOS and Linux?**
-Yes — PDM ships native builds for **macOS** (Apple Silicon & Intel) and **Linux** (self-contained AppImage), right next to the Windows version. Grab the `.dmg` or `.AppImage` from the [Releases page](https://github.com/Emizo59/Prime-Download-Manager/releases/latest).
+Yes — PDM ships native builds for **macOS** (Apple silicon, macOS 26+) and **Linux** (self-contained AppImage), right next to the Windows version. Grab the macOS `.zip` or the `.AppImage` from the [Releases page](https://github.com/Emizo59/Prime-Download-Manager/releases/latest).
 
 **Where are my files saved?**
 Wherever you choose — set a default download folder in **Settings**, or pick a path per download.
