@@ -1,11 +1,11 @@
 {
-  "build": 2026103101,
+  "build": 2026110201,
   "version": "1.3.4",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
-  "notes": "What's new:\n• Fixed YouTube qualities showing tiny sizes (~800 KB) and downloads not starting\n• Fixed Clip failing with \"ffmpeg exited with code 8\"\n• Playlist videos no longer loop \"Waiting…\" after finishing\n• Security hardening for the browser-extension connection",
+  "notes": "What's new:\n• macOS: fixed a crash when opening the menu-bar icon on macOS 27\n• Safari extension: now starts the app and hands off downloads, with an \"Enable in Safari\" shortcut in Settings\n• Fixed some Facebook links getting stuck on \"Preparing\"\n• Fixed YouTube qualities showing tiny sizes (~800 KB) and downloads not starting\n• Fixed Clip failing with \"ffmpeg exited with code 8\"\n• Playlist videos no longer loop \"Waiting…\" after finishing",
   "sha256": "6abd60dfcec8bde63be8a4d6030d76baac1c4ab2a692f81d08a3fd3f33c82f32",
   "signature": "qcXuIhDOICOnPLRsGJnDGfLqLpWGSqtlrKCID1kQ3PeE03YLDh8ctf5w75yTQusKAAsYXiaGpSXBMO+LSQbT4EVCtzLadsc+IImDi5ixWAalHlHbv1Rx9aOHsGVgiMy09GZEUL0zhMZxRQohX1TxwPaHbvgkiQVf/d49T8w3VjThn6hRRkgCqyrpJbPva4Q0gA1A8gQ9C0zDc2Jyk/zPLshcXLbLQosmk5jdXjttiNW1BeIisSaqxjbD8D/4lcGSZ4uPdypkcvGl6JSAgVGkxCN3x3WBpXCn9Ugpq5gtyYB+HEAAVIW1cou/lvHtWabvwwPsYDAx7RaNkTTneLzhqg==",
   "url_mac": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/PrimeDownloadManager.zip",
-  "sha256_mac": "ee745974ef09d8549e5dfc5f7352ab41d0761d3eb09499606e6222f7bc330070",
-  "signature_mac": "qqrClD0e5jCjtZbdrSDEbeXn9yAHiWRCqLw7ykUQT6rswQMNbvwClN+eftqmxWRvYVbtllEtBzWe28mhw9KeXvGiVdfNkQGeiEYEWgbHsLlrPJyTXn5eaD3C6ADNn0BNfrf6WU40fKaFtaPsZ+rArxwqLVi0qPekzeSDZj2kXnYnUni4knhoICEoAkcjIabijJGpVkSolJ/uOko1KoxHHJzILOfyZnODpiwX8YaC0MP9lRyFSNFRmVXYo7yt/wWRTevQC9VxhyR3f+4dvqWNWACEE4/V0lObDIBecqtg3k7TldHhAXz36taQ4DLqX6NZQRasV7vmVx0knFnN6QnaEQ=="
+  "sha256_mac": "195e99840277cbbbf1aecdb16896ed5d6d11aa1cde3ab5fb9506c91c1952700a",
+  "signature_mac": "mHLFpuFhAFHT1TaRlERkddAGmDNu4OfYjdYbJHNsyUaygv+ewUJB0IDUOs2hgQh74QyhK48L2iKbVZ9hCX4Bx5KfQp4Dv1m79mQOAQET9RC+lEJ8ghB4SfeFUPtQwn/By1XSTRXhZ/mmr84/2+vnApiR6Jrmp3cmTdveKTZv8LQqWENZg26MgEDOzW3FMt57s3YGpcHikdbzO1zHyI2Gj7OhG/gKQc/kh9+BbMu8m3GwcQ1JwYMrJEjxVmX8hlI5ZySYOhxKC6Uqpal51mUkxHjU1+dPU2pgCM9y2FZ8msdJkAN8kcug/3YkvsXQpLwW/+tIHSCPaqOWH9JrAkCt1w=="
 }
