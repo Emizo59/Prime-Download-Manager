@@ -8,11 +8,11 @@
 
 Multi-connection acceleration · Video & playlist downloads · Video clipping · Torrents · Browser integration · Stunning Glass & Classic themes
 
-[![Download Windows](https://img.shields.io/badge/⬇_Download-Windows_10%2F11-2563eb?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)
+[![Download Windows](https://img.shields.io/badge/⬇_Download-Windows_10%2F11-2563eb?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases)
 &nbsp;
-[![Download macOS](https://img.shields.io/badge/⬇_Download-macOS-000000?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/PrimeDownloadManager.zip)
+[![Download macOS](https://img.shields.io/badge/⬇_Download-macOS-000000?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases)
 &nbsp;
-[![Download Linux](https://img.shields.io/badge/⬇_Download-Linux_AppImage-f59e0b?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager-x86_64.AppImage)
+[![Download Linux](https://img.shields.io/badge/⬇_Download-Linux_AppImage-f59e0b?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases)
 &nbsp;
 [![Version](https://img.shields.io/badge/version-1.3.0-22c55e?style=for-the-badge)](https://github.com/Emizo59/Prime-Download-Manager/releases/latest)
 
@@ -32,7 +32,7 @@ Multi-connection acceleration · Video & playlist downloads · Video clipping ·
 
 <div align="center">
 
-### [📥 Download the latest version](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)
+### [📥 Download the latest version](https://github.com/Emizo59/Prime-Download-Manager/releases)
 
 </div>
 
@@ -85,18 +85,18 @@ Multi-connection acceleration · Video & playlist downloads · Video clipping ·
 ## 🚀 Getting started
 
 **Windows**
-1. **[Download the installer](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe)** (`Prime_Download_Manager_Setup.exe`).
+1. **[Download the installer](https://github.com/Emizo59/Prime-Download-Manager/releases)** (`Prime_Download_Manager_Setup.exe`).
 2. Run it and follow the setup wizard.
 3. When prompted, enable **Browser Integration** so PDM can automatically catch your downloads.
 4. Start downloading — PDM takes it from there. 🎉
 
 **macOS**
-1. **[Download the app](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/PrimeDownloadManager.zip)** (`PrimeDownloadManager.zip` — Safari unzips it for you).
+1. **[Download the app](https://github.com/Emizo59/Prime-Download-Manager/releases)** (`PrimeDownloadManager.zip` — Safari unzips it for you).
 2. Drag **Prime Download Manager** into **Applications**.
 3. First launch: macOS asks whether to open an app downloaded from the internet — click **Open**. The app is signed and notarized by Apple.
 
 **Linux**
-1. **[Download the AppImage](https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager-x86_64.AppImage)** (`Prime_Download_Manager-x86_64.AppImage`).
+1. **[Download the AppImage](https://github.com/Emizo59/Prime-Download-Manager/releases)** (`Prime_Download_Manager-x86_64.AppImage`).
 2. Make it executable — `chmod +x Prime_Download_Manager-x86_64.AppImage` — then double-click or run it. On first launch PDM adds itself to your applications menu; no installation needed.
 
 > **System requirements:** Windows 10 / 11 (64-bit) · macOS 26+ (Apple silicon) · Linux x86-64 (glibc 2.35+, e.g. Ubuntu 22.04 and newer).
