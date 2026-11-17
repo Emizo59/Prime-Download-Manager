@@ -91,7 +91,9 @@ jobs:
       - name: Install MinGW OpenSSL (MSYS2 static) for the static libtorrent link
         run: |
           C:\msys64\usr\bin\pacman -Sy --noconfirm
-          C:\msys64\usr\bin\pacman -S --noconfirm --needed mingw-w64-x86_64-openssl
+          # Pinned to OpenSSL 3.x: MSYS2 moved to OpenSSL 4 (opaque ASN1_STRING), which
+          # libtorrent 2.0.10 does not compile against.
+          C:\msys64\usr\bin\pacman -U --noconfirm https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-openssl-3.6.5-1-any.pkg.tar.zst
           if (-not (Test-Path "C:\msys64\mingw64\lib\libcrypto.a")) { throw "no static libcrypto.a in MSYS2 openssl" }
 
       - name: Build STATIC libtorrent archive (SAC — absorbed into exe)
