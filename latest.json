@@ -1,10 +1,13 @@
 {
   "build": 2026110201,
+  "build_win": 2026110201,
+  "build_mac": 2026110201,
+  "build_linux": 2026110201,
   "version": "1.3.4",
   "url": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/Prime_Download_Manager_Setup.exe",
   "notes": "What's new:\n• macOS: fixed a crash when opening the menu-bar icon on macOS 27\n• Safari extension: now starts the app and hands off downloads, with an \"Enable in Safari\" shortcut in Settings\n• Fixed some Facebook links getting stuck on \"Preparing\"\n• Fixed YouTube qualities showing tiny sizes (~800 KB) and downloads not starting\n• Fixed Clip failing with \"ffmpeg exited with code 8\"\n• Playlist videos no longer loop \"Waiting…\" after finishing",
-  "sha256": "6abd60dfcec8bde63be8a4d6030d76baac1c4ab2a692f81d08a3fd3f33c82f32",
-  "signature": "qcXuIhDOICOnPLRsGJnDGfLqLpWGSqtlrKCID1kQ3PeE03YLDh8ctf5w75yTQusKAAsYXiaGpSXBMO+LSQbT4EVCtzLadsc+IImDi5ixWAalHlHbv1Rx9aOHsGVgiMy09GZEUL0zhMZxRQohX1TxwPaHbvgkiQVf/d49T8w3VjThn6hRRkgCqyrpJbPva4Q0gA1A8gQ9C0zDc2Jyk/zPLshcXLbLQosmk5jdXjttiNW1BeIisSaqxjbD8D/4lcGSZ4uPdypkcvGl6JSAgVGkxCN3x3WBpXCn9Ugpq5gtyYB+HEAAVIW1cou/lvHtWabvwwPsYDAx7RaNkTTneLzhqg==",
+  "sha256": "c3e0131d28c435ef403b55bfb37a787669eeb6ae6009e81d46babcfbd1e67df9",
+  "signature": "SUFs1Zpvii0jo/b3EWjFapyKrCGog3DxAlvEX8hdYmMjCpkkIjy30L7nXKYfr1CdM5jowXoJX8IVVEyt3x/z1ouPTI3MggbSM8fhexKexFOIlRYjpDnC8crRk45bKo63qZ81qaWkFjwypvXWgU+11nOxo942DGLgIBpF7yl8ezJdQsyJLYpcrwdsvzOiS2gTO1tIIB4nG5s01O1TUYU5uujP08VCtZO26sGemIQBM2LArxSddrstflxl53nYvYhn3Poa67J+ycz0LWAdI9SDKueLhVfM4eUkb3YMvC9B/1+otCaLgBUu6VHLcLZknceHU7JGi7PDkh8caXYUKhcPbA==",
   "url_mac": "https://github.com/Emizo59/Prime-Download-Manager/releases/latest/download/PrimeDownloadManager.zip",
   "sha256_mac": "195e99840277cbbbf1aecdb16896ed5d6d11aa1cde3ab5fb9506c91c1952700a",
   "signature_mac": "mHLFpuFhAFHT1TaRlERkddAGmDNu4OfYjdYbJHNsyUaygv+ewUJB0IDUOs2hgQh74QyhK48L2iKbVZ9hCX4Bx5KfQp4Dv1m79mQOAQET9RC+lEJ8ghB4SfeFUPtQwn/By1XSTRXhZ/mmr84/2+vnApiR6Jrmp3cmTdveKTZv8LQqWENZg26MgEDOzW3FMt57s3YGpcHikdbzO1zHyI2Gj7OhG/gKQc/kh9+BbMu8m3GwcQ1JwYMrJEjxVmX8hlI5ZySYOhxKC6Uqpal51mUkxHjU1+dPU2pgCM9y2FZ8msdJkAN8kcug/3YkvsXQpLwW/+tIHSCPaqOWH9JrAkCt1w=="
